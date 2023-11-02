@@ -1,0 +1,12 @@
+Title: Microsoft Build 2023: Copilots & Plugins
+Where: microsoft build 2023
+
+At this week's kickoff of the big Microsoft AI 2023 developer conference -- oops, sorry, that's "Microsoft Build 2023" developer conference -- it was all copilots and plugins.
+
+Yes, AI took center stage -- and front stage and back stage and all the stages in between.
+
+Why?
+
+Because "You only need two simple letters to accurately convey the major shift in the technology space this year: A and I," according to Frank X. Shaw, Microsoft's chief communications officer, who penned a blog post on Tuesday, May 23, the start of the three-day online/in-person event.
+
+Two major themes permeating the conference are copilots -- AI assistants across a broad swath of products and services -- and plugins, which effectively transform copilots into aggregators, potentially making them one-stop shops for both enterprise and consumer customers.

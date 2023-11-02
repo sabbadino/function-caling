@@ -1,0 +1,2 @@
+session title: Next generation AI for developers with the Microsoft Cloud
+abstract: Join Microsoft’s Scott Guthrie, EVP Cloud + AI, as he discusses how Microsoft is making AI innovation real for developers today with experiences like GitHub Copilot, Azure OpenAI Service, and the Microsoft Cloud platform and tools you need to produce next-gen, AI-infused applications.

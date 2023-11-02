@@ -1,0 +1,2 @@
+session title: Build and Maintain your Company Copilot with Azure ML and GPT-4, Q&A
+abstract: Join this session to connect with experts from Azure Machine Learning and Azure AI infrastructure. Get your questions answered as you build your own large AI models using Microsoft Azure!

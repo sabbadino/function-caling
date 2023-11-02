@@ -1,0 +1,2 @@
+session title: Getting started with generative AI using Azure OpenAI Service
+abstract: Businesses are integrating large language models (LLM) to build the next generation of applications. Examples include generating personalized marketing text and imagery, summarizing long-form reports, and building entirely new experiences with customer service chatbots. With Azure OpenAI Service, businesses can apply the most advanced AI models—including Dall-E 2, GPT-3.5, GPT-4, Codex, and ChatGPT to address these use-cases, unlock efficiencies, mitigate risk, and more.

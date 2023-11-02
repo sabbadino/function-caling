@@ -1,0 +1,2 @@
+session title: Harnessing generative AI with NVIDIA AI and Microsoft Azure
+abstract: With the explosion of OpenAI’s ChatGPT adoption, developers across every industry are looking at ways of using Generative AI to unlock new business models that automate personalized content creation, enhance customer engagement, and improve operational efficiencies. This session will show how you can combine the power of the NVIDIA AI platform and Azure’s NDv5 AI supercomputer infrastructure powered by the latest NVIDIA H100 GPUs to develop and deploy Generative AI applications.

@@ -1,0 +1,2 @@
+session title: How to build next-gen AI services with NVIDIA AI on Azure Cloud
+abstract: Advancements in generative AI are transforming every industry. Powering the technology is NVIDIA AI, the world’s most advanced AI platform with full-stack innovation in computing, software, and AI models and services. Organizations can engage the platform at any layer on Azure Cloud. This session discusses and demonstrates how developers can utilize NVIDIA AI platform software on Azure to accelerate their data science pipeline and streamline development and deployment of production AI.

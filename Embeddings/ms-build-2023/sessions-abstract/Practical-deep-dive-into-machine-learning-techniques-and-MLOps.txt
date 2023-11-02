@@ -1,0 +1,2 @@
+session title: Practical deep dive into machine learning techniques and MLOps
+abstract: To scale AI, machine learning engineers and data scientists need an easy way to get models up and running quickly, collaborate on ML assets across teams, and ensure they are doing it all securely and responsibly. In this session, learn how to collaborate on and streamline the management of thousands of models across teams with new, innovative features in Azure Machine Learning. We also show you how to quickly build, train, and debug your models for faster time to production.

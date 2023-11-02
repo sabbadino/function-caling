@@ -1,0 +1,12 @@
+Title: New tools for building your own copilot plugins 
+Where: microsoft build 2023
+
+With a solid idea for an application in hand, developers can go about turning it into reality, he said. The process starts with selecting a generative AI model such as GPT-4, which is available through Azure OpenAI Service. The next step is to give the copilot a meta-prompt, which is a base description of the copilot’s role and how it should operate. In addition, the copilot needs memory to keep track of a conversation with a user and respond with appropriate context and awareness. Finally, the copilot needs the ability to access data and other services, which plugins can provide.
+
+Copilots deployed to support complex tasks, such as writing a whole book, will also require orchestration – the ability to break down tasks into multistep components and execute the tasks according to a generated plan.
+
+Developers can use tools such as the Semantic Kernel software development kit that Microsoft released to open source in March to integrate large language models with conventional programming languages. The kit includes tools for memory and orchestration and support for plugins, which accelerates the development of copilots
+
+At Microsoft Build 2023, the company also introduced new tools to simplify the development of copilots. For example, with the new Azure AI Studio, developers can now more easily ground conversational AI models on their private data. With a new capability called Azure OpenAI Service on your data, developers can uncover organization-specific insights from data, text and images using natural language-based application interfaces. To further extend the capabilities of large language models, Microsoft also announced support for plugins with Azure OpenAI Service. Azure AI also now supports Azure Machine Learning prompt flow, a sophisticated prompt engineering tool, noted Montgomery.
+
+“We’ve built a bunch of these copilots. We’ve looked at a bunch of the different architectures out there for how you load other information in, how you create reproducible content, how you feed the model the right stuff so that it gives the right answers,” he said. “Build is going to be a celebration of all the things we’ve learned, the tooling we’ve created and bring that out to the world.”

@@ -1,0 +1,2 @@
+session title: Qualcomm® AI Stack for developers and extension to on-device AI
+abstract: Ever wonder how Qualcomm® AI Stack is helping developers scale their artificial intelligence applications? We’ll look at how software enablement is helping developers train AI models once, and then deploy anywhere from edge devices to cloud. We’ll see how the concept of on-device AI can be used to enhance end user experiences.

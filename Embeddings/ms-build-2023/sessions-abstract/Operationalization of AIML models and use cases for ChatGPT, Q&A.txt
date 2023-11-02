@@ -1,0 +1,2 @@
+session title: Operationalization of AI/ML models and use cases for ChatGPT, Q&A
+abstract: The LLMs might be the biggest disruption to tech since the internet. They can now answer the questions that the previous generation search world did with crawl, retrieve, query and UI. Tech, OSS has been busy building tooling around LLMs including Prompt Engineering, LangChain and LORA. We will explore your challenges and use cases during this discussion facilitated by a long time LLM veteran, AI Platform leads for LORA, FT and Prompt Engineering.

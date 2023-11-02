@@ -1,0 +1,2 @@
+session title: Scott and Mark Learn to Code
+abstract: GitHub Copilot is a powerful AI tool that helps you write code faster and better. Join Scott Hanselman and Mark Russinovich as they use GitHub Copilot to create a fun and interactive application from scratch. You will learn how LLMs that power GitHub Copilot work under the cover, LLM capabilities and limitations, and the difference between finetuning and prompt engineering. Whether you are a beginner or an expert, it will inspire you to explore new possibilities with GitHub Copilot and LLMs.

@@ -1,0 +1,2 @@
+session title: OpenFL (Federated Learning) Building better AI models with private data
+abstract: With Open Federated Learning (OpenFL), anyone can train AI models at the edge, unlock insights from private data, and bring new ideas to open source. Join our experts to discuss and learn more.

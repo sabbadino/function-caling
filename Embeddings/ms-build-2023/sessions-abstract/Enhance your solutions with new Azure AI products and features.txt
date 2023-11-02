@@ -1,0 +1,2 @@
+session title: Enhance your solutions with new Azure AI products and features
+abstract: This session will explore the latest advancements in Azure AI, including the launch of our newest product, Azure AI Content Safety, the introduction of Promptflow, and new features in Azure OpenAI, and Azure Cognitive Search. Gain insight into how to develop, train, and deploy AI models with Azure AI’s comprehensive set of tools and services.

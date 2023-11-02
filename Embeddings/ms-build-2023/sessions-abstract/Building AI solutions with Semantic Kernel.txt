@@ -1,0 +1,2 @@
+session title: Building AI solutions with Semantic Kernel
+abstract: During this session, learn why we created Semantic Kernel (SK) and how it requires a new kind of developer mindset. Discover how SK has evolved alongside OpenAI’s GPT-4 trajectory and what plugins will mean. We also discuss early signals we have gathered around SK use for copilots.

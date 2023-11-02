@@ -1,0 +1,10 @@
+Title: How plugins work
+Where: microsoft build 2023
+
+At Microsoft Build, the company showcased an AI development framework that helps developers build their own copilot. This stack includes support for plugins that augment the capabilities of AI systems by allowing them to retrieve real-time information, incorporate company or other business data, perform new types of computations and safely take action on the user’s behalf.
+
+At root, think of plugins as a bridge. This could be a bridge between a large language model that was trained on public data from the internet and all the data that a company may keep privately about its benefits. The plugin is the bridge that gives the copilot access to those files when it answers a question from an employee at the company.
+
+Similarly, a plugin could serve as a bridge between a large language model and a website or back-end system that a company uses to book business travel, enabling the copilot to make arrangements for a salesperson’s trip to San Francisco that are in line with the company’s travel policy.
+
+A plugin is about how you, the copilot developer, give your copilot or an AI system the ability to have capabilities that it’s not manifesting right now and to connect it to data and connect it to systems that you’re building,” Scott said. “I think there’s going to eventually be an incredibly rich ecosystem of plugins.

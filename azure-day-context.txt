@@ -1,0 +1,80 @@
+Azure Day Torino 2023
+Azure Day è l'evento dedicato al cloud di casa Microsoft, la conferenza si terrà sia in presenza che online il 14 Ottobre 2023 a Torino presso il lingotto.
+La conferenza è gratuita, tutte le spese sono sostenute dai nostri Sponsor
+di seguito l'agenda delle sessioni:
+
+---------------------------
+speaker: Valentina Alto
+title: Building LangChain Agents with Azure OpenAI models and Cognitive Services
+session abstract: Large Language Models have proved to be extremely powerful, but what if you want to integrate them into your applications and let them interact with external tools?
+LangChain is a lightweight python-based framework meant to orchestrate LLMs within applications to build intelligent agents and copilots.
+In this session, we will see how to build an Agent powered by Azure OpenAI models and enriched by Azure Cognitive Services, all orchestrated by LangChain.
+when and where: LIVE ROOM 1 sab 09:45 - 10:25
+keywords: Session A.I. Intermediate Italiano
+---------------------------
+speaker: Clemente Giorio e Gianni Rosa Gallina
+title: Generative AI Landscape: From Popular Services to DIY Solutions on Azure
+session abstract: Oggi vedremo lo stato dell'arte dell'AI generativa per molteplici casi d'uso. Dopo una panoramica sui più famosi servizi ChatGPT, Midjourney, ElevenLabs e RunwayML, vedremo possibili approcci per implementare servizi simili sfruttando tool, framework e modelli open-source sfruttando la potenza di calcolo messa a disposizione da Azure.
+LIVE ROOM 1 sab 10:30 - 11:10
+Session A.I. Intermediate Italiano Azure Dev A.I. Machine Learning
+when and where: LIVE ROOM 1 sab 10:30 - 11:10
+keywords: Session A.I. Intermediate Italiano Azure Dev A.I. Machine Learning
+---------------------------
+speaker: Lorenzo Barbieri and Daniela Tomoiaga
+title: Develop any software from anywhere!
+session abstract: Working remotely can present many challenges for programming and development teams, luckily, there are several tools for remote software developers that can overcome these obstacles to keep collaboration and productivity high and costs and problems low.
+We will discuss about:
+• GitHub Copilot
+• Microsoft Dev Box
+• GitHub Codespaces
+• Visual Studio Live Share
+• Azure DevTest Labs
+when and where: LIVE ROOM 1 sab 11:30 - 12:10
+keywords: Session Dev Intermediate Italiano
+---------------------------
+speaker: Andrea Tosato
+title: Azure Container App love️ Dapr Workflow
+session abstract: Dapr Workflow è una nuova funzionalità per gestire flussi di codice complessi. Possiamo esprimere interazioni da pezzi di codice e interazione tra servizi.
+Vedremo tutto in ottica Cloud, anche su Azure con le Container Apps.
+when and where: LIVE ROOM 1 sab 12:15 - 12:55
+keywords: Session Architecture Advanced Italiano Azure Dev Architecture
+---------------------------
+speaker: Alberto Acerbis
+title: Evolutionary Architectures con .NET e Azure
+session abstract: Ci troviamo spesso davanti a progetti che nascono piccoli e crescono velocemente.
+All’inizio di un nuovo progetto, spesso ci chiediamo: la metafora fra l'architettura software e l'architettura di un edificio è ancora valida? Siamo sicuri che l'architettura non possa evolvere così come evolvono le specifiche di un’applicazione?
+Evolutionary Architectures è rivolto a coloro che si sono trovati a dover dare una direzione ai propri progetti e si sono posti queste domande.
+Vedremo infatti che è possibile creare una architettura pronta ad evolversi, con esempi pratici che verrano poi rilasciati su Kubernetes (AKS) attraverso Azure Dev Ops, Helm e Github.
+when and where: LIVE ROOM 1 sab 14:00 - 14:40
+keywords: Session Dev Intermediate Italiano Azure Dev IaaS PaaS
+---------------------------
+speaker: Marco Minerva
+title: Integriamo ChatGPT nelle nostre applicazioni
+session abstract: Tutti noi abbiamo provato ChatGPT almeno una volta, rimendo stupiti dal suo funzionamento. Ma cosa dobbiamo fare per integrarlo davvero nelle nostre soluzioni? Come possiamo sfruttare le sue potenzialità in scenari reali? In questa sessione capiremo come utilizzare ChatGPT per dare un valore aggiunto alle applicazioni, combinandolo con altri servizi di Azure come Cognitive Search e dandogli la possibilità di accedere ai nostri dati privati, in tutta sicurezza.
+when and where: LIVE ROOM 1 sab 14:45 - 15:25
+keywords: Session A.I. Intermediate Italiano Azure Dev A.I. Cognitive Services
+---------------------------
+speaker: Enrico Sabbadin
+title: Build your domain expert chatbot using azure open.ai and c#
+session abstract: Learn how to use c# and azure open.ai to build a domain expert chatbot based on your knowledge base , q&a and documentation
+In this session you will learn some azure open.ai key concepts and features such as:
+- chat-completion api endpoint,
+- token limits,
+- history and language management
+- embeddings
+to develop a domain expert multilingual chatbot on top of azure open-ai and ms cognitive services offer.
+when and where: LIVE ROOM 1 sab 15:30 - 16:10
+keywords: Session A.I. Intermediate Italiano Azure A.I. Cognitive Services
+---------------------------
+speaker: Andrea Dottor
+title: Serverless Websites con Blazor e Azure Functions
+session abstract: Con Blazor WebAssembly si aprono nuove possibilità per gli sviuppatori ASP.NET, tra le quali quelle di poter pubblicare le applicazioni su Azure Static Web Apps (o in una CDN) e sfruttare le Azure Functions come backend, adottando così un'architettura 100% serverless.
+Una soluzione flessibile che vedremo in ogni dettaglio in questa sessione.
+when and where: LIVE ROOM 1 sab 16:30 - 17:10
+keywords: Session Dev Intermediate Italiano Azure Dev Web Serverless
+---------------------------
+speaker: Massimo Bonanni
+title: Che l'attributo sia con te! ABAC, non solo ruoli in Azure!!
+session abstract: Tutti conoscono Role-Based Access Control, il meccanismo basato sui ruoli che permette di gestire gli accessi alle risorse in Azure. Ma pochi conoscono Attribute-Based Access Control, il meccanismo basato sugli attributi che permette di definire, granularmente, le politiche di accesso ai dati in Azure. In questa sessione vedremo di cosa si tratta e come possa affiancare RBAC per garantire maggiore sicurezza ai nostri dati.
+when and where: LIVE ROOM 1 sab 17:10 - 17:50
+keywords: Session Security Advanced Italiano Azure PaaS Data Security

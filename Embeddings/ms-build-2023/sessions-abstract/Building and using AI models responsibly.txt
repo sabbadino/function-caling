@@ -1,0 +1,2 @@
+session title: Building and using AI models responsibly
+abstract: As large language models (LLMs) go mainstream, it’s critical to know how to use them safely. Come learn how Microsoft builds responsible AI and safety features with Azure OpenAI and Azure Content Safety and how AzureML enables you to evaluate your own use of LLMs, including OpenAI and Hugging Face models. We’ll cover how to mitigate content harms, hallucinations, jailbreaks, and bias and provide explanations tasks such as retrieval augmented generation, summarization, and classification.

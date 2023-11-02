@@ -1,0 +1,18 @@
+Title: Azure Open ai plugins
+Where: microsoft build 2023
+
+Plugins essentially serve as a bridge between an AI system and the data that a third party wants to keep private or proprietary. Plugins allow Microsoft's copilots to interact with a range of different software and services, enabling developers to build plugins that retrieve real-time information, incorporate company or other business data, and take action on a user's behalf. With a plugin, an AI system can access private files, enabling it to answer a question about business-specific data. This feature is seen as a response to the increasing demand for privacy in the context of generative AI, which could potentially leak sensitive data.
+
+Plugins recently came to ChatGPT, the sentient-sounding chatbot from Microsoft partner OpenAI, and Microsoft is rolling them out elsewhere, much like how copilots debuted with the GitHub Copilot "AI pair programmer" and are now being disseminated across many products and services, such as the Microsoft 365 suite of office apps. This reporter, for example, is using the Prompt Perfect plugin to help with prompting large language models (LLMs) like GPT-4 that back offerings like ChatGPT. It reformats a user prompt to be more effective. I'm also using WebPilot, which enables ChatGPT to browse the web -- in a limited fashion -- to use information on the internet that normally wouldn't be available because of the chatbot's September 2021 knowledge cut-off date, after which it knows nothing. There are now dozens of plugins for ChatGPT, and Microsoft and others are creating more for other products and services.
+
+Today, Microsoft announced it was working with OpenAI to support and grow the AI plugins ecosystem by embracing an open standard for plugins that integrates across OpenAI's ChatGPT and Microsoft's copilot offerings, which include Bing Chat, Dynamics 365 Copilot, Windows Copilot and Microsoft 365 Copilot.
+
+"Developers can now integrate their apps and services into Microsoft 365 Copilot with plugins to reach hundreds of millions of people where they work every day," Microsoft said in an announcement. "Plugins are tools that augment the capabilities of AI systems, enabling them to interact with APIs from other software and services to retrieve real-time information, incorporate company and other business data, and perform new types of computations."
+
+These come in three types:
+
+- ChatGPT plugins
+- Teams message extensions
+- Microsoft Power Platform connectors, which enable developers to use existing software and tooling investments and skills
+
+Thousands of line-of-business and third-party plugins will be enabled in the coming months, with more than 50 already being offered to those in the Microsoft 365 Copilot Early Access Program.

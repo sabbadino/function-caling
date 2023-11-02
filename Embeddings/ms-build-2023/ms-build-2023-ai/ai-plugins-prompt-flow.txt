@@ -1,0 +1,17 @@
+Title: Harness the power of Large Language Models with Azure Machine Learning prompt flow
+Where: microsoft build 2023
+
+Prompt flow is a powerful feature within Azure Machine Learning (AzureML) that streamlines the development, evaluation, and continuous integration and deployment (CI/CD) of prompt engineering projects. It empowers data scientists and LLM application developers with an interactive experience that combines natural language prompts, templating language, a list of built-in tools and Python code.
+
+Prompt flow offers a range of benefits that help users transition from idealization to experimentation and ultimately to production-ready LLM-infused applications:
+
+Prompt Engineering agility: users can easily track, reproduce, visualize, compare, evaluate, and improve their prompts and flows with various tools and resources.
+Enterprise readiness for LLM-infused Applications: users can collaborate, deploy, monitor, and secure their flows with Azure Machine Learning’s platform and solutions.
+
+Here are a few highlights of those features to address the pains for Prompt Engineering.
+
+To simplify prompts and flow design and development you can use a notebook-like programming interface, a Directed Acyclic Graph (DAG) view, and a chat bot experience to create different types of flows. You can also use built-in tools and samples to jump-start your Prompt Engineering projects. Prompt flow guides you through the workflow from authoring, variants tuning, single run for debug, bulk run for test and evaluation, and deploy of the flow. With prompt flow, you can easily and efficiently develop LLM-powered applications for various scenarios.
+
+Efficiently tune, evaluate and optimize prompts : Prompt flow's variants feature is a powerful tool that enables users to create, run, evaluate, and compare multiple prompt variants with ease. This feature streamlines the exploration and refinement process of prompts, allowing users to iteratively enhance their projects and fine-tune their LLM-infused applications. By offering an intuitive approach to test and compare different prompts, users can rapidly identify the most effective variants, leading to data-driven decisions that optimize the performance and outcomes of their AI applications.
+
+Before transitioning to production, take advantage of prompt flow's evaluation tools and metrics to thoroughly assess your prompts and flows. The comprehensive evaluation capabilities provided by prompt flow enable users to effectively gauge the quality and performance of their prompts and flows. By setting up custom metrics, you can compare different prompt variants and flows, facilitating data-driven insights that guide decision-making and refine your prompts and flows. This leads to enhanced LLM-infused applications and end-user experiences, ensuring your AI solutions are production-ready and impactful. Prompt flow offers an extensive range of built-in evaluation flows with various metrics that users can directly utilize, or they can create their own tailored evaluation flows based on specific scenarios.

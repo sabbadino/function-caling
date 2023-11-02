@@ -1,0 +1,8 @@
+Title: Microsoft outlines framework for building AI apps and copilots; expands AI plugin ecosystem
+Where: microsoft build 2023
+
+Microsoft introduced the concept of a copilot nearly two years ago with GitHub Copilot, an AI pair programmer that assists developers with writing code. This year, Microsoft rolled out copilot experiences across its core products and services, from the AI-powered chat in Bing that’s changing how people search the internet to Microsoft 365 Copilot, GitHub Copilot X, Dynamics 365 Copilot, Copilot in Microsoft Viva and Microsoft Security Copilot.
+
+Today at the annual Microsoft Build developers conference, Microsoft announced that it has expanded this ecosystem of Microsoft Copilots to include Copilot in Power BI and Copilot in Power Pages in preview, Copilot in Microsoft Fabric, available in preview soon, and Windows Copilot, which will start to become available for preview in June. The company also introduced new features that will help developers build their own copilots and next-generation AI applications. This includes new tools called plugins that make copilots more useful by allowing them to interact with other software and services.
+
+Today, Microsoft is adopting the same open plugin standard that OpenAI introduced for ChatGPT, enabling interoperability across ChatGPT and the breadth of Microsoft’s copilot offerings. That means developers can now use one platform to build plugins that work across both business and consumer surfaces, including ChatGPT, Bing, Dynamics 365 Copilot, Microsoft 365 Copilot and Windows Copilot. Microsoft also announced it is bringing Bing to ChatGPT as the default search experience.

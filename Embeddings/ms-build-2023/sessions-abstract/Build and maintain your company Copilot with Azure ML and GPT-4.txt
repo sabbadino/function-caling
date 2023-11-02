@@ -1,0 +1,2 @@
+session title: Build and maintain your company Copilot with Azure ML and GPT-4
+abstract: Large AI models and AI-embedded applications like ChatGPT are transforming the way we live and work, made possible by the confluence of advancements in big data, algorithms, and powerful AI supercomputers. Harnessing these technologies for real-world applications requires purpose-built tooling to enable effective prompt engineering, experimentation, and safety mechanisms that deliver great customer experiences.

@@ -1,0 +1,2 @@
+session title: Practical deep dive into machine learning techniques and MLOps, Q&A
+abstract: Come and join us in this interactive session with our product experts and get your questions answered on the latest capabilities in Azure Machine Learning and the latest AI infrastructure.

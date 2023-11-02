@@ -1,0 +1,2 @@
+session title: The era of the AI Copilot
+abstract: Join Microsoft Chief Technology Officer and Executive Vice President of AI Kevin Scott to explore how Microsoft and OpenAI’s full-stack AI platform, fueled by Azure, the world’s supercomputer, can empower developers, startups, and entrepreneurs to innovate and develop the next generation of AI apps and tools that will make the impossible possible.

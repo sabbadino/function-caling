@@ -1,0 +1,2 @@
+session title: Build apps with state-of-the-art computer vision
+abstract: Translating unstructured image and video data into actionable insights is difficult. In this session, learn how state-of-the art foundation models in Azure Cognitive Service for Vision can help you train and deploy market-ready computer vision apps faster, speeding time to insight. We explore how to connect that data from visual content to natural language interactions to improve content accessibility, drive acquisition through SEO, and improve incident response times.

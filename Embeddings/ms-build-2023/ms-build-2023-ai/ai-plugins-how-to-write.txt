@@ -1,0 +1,10 @@
+Title: Expanding the plugin ecosystem
+Where: microsoft build 2023
+
+Developers will also be able to create, test and deploy their own plugins in a number of ways – to eventually deploy for use with Microsoft Copilots and to augment the capabilities of their own applications built with generative AI technology.
+
+For example, a developer at a large corporation may want the Microsoft 365 Copilot to be able to access the company’s contracts with customers and vendors in order to ask questions about how certain legal issues were handled in the past. To do that, the developer needs to connect the Microsoft 365 Copilot with the private database of legal files, which requires the documents to be encoded, indexed and stored in such a way that they can be searched.
+
+“That’s a pattern of how you would load information into the model,” said John Montgomery, Microsoft corporate vice president of program management for the AI platform. “And that’s where plugins come in. What a plugin does is it says ‘Hey, we want to make that pattern reusable and set some boundaries about how it gets used.’”
+
+Microsoft is releasing a set of capabilities to facilitate the creation of plugins that work across its copilot surfaces. Visual Studio Code, GitHub Copilot and GitHub Codespaces will make it simple for developers to create, debug and deploy new plugins, for example, and Azure AI will add capabilities to run and test plugins on private enterprise data. Once created, these plugins will work across Microsoft’s Copilot experiences

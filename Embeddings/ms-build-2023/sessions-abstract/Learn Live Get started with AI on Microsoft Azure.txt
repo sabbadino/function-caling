@@ -1,0 +1,2 @@
+session title: Learn Live: Get started with AI on Microsoft Azure
+abstract: Artificial Intelligence (AI) empowers amazing new solutions and experiences, and Microsoft Azure provides easy-to-use services to help you get started. With AI, we can build solutions that seemed like science fiction a short time ago; enabling incredible advances in health care, financial management, environmental protection, and other areas to make a better world. In this session, learn about the kinds of solution AI can make possible and considerations for responsible AI practices.

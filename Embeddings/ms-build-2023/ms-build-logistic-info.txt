@@ -1,0 +1,15 @@
+Title: microsoft build 2023 general information  
+Where: microsoft build 2023
+
+microsoft build 2023 is also referred as msbuild 2023 
+microsoft build 2023 is also referred as Microsoft’s Build developer conference
+microsoft build 2023 is also referred as msbuild2023
+
+
+Microsoft’s Build developer conference 2023 takes place in Seattle, Washington. It starts on May 23rd and last through May 25th 2023, with pre-day workshops starting on the 22nd.
+Microsoft’s Build developer conference 2023 started with a keynote from CEO Satya Nadella that will take place at 12PM ET / 9AM PT on May 23rd 2023. There’ll be an in-person event taking place in Seattle, Washington, but many of the sessions will also be available to watch online. 
+Microsoft’s Build developer conference 2023
+
+Similar to other developer conferences like Google I/O and Apple’s WWDC, Microsoft uses Build to make feature announcements for its platforms and provide in-depth sessions for developers and other professionals that rely on its tools. Although there’s been the odd hardware announcement at past Build conferences, Microsoft is normally pretty focused on software and services.
+
+This year’s Build is heavily focusing on AI, with new additions of the CoPilot experience to Windows 11 and Edge, as well as new Bing AI and Copilot plugins for OpenAI’s ChatGPT. Microsoft has been busy in recent months building generative AI into many of its products and services, including search engine Bing, browser Edge, GitHub, and Office productivity suite, and it’s showing no signs of slowing down anytime soon. 

@@ -1,0 +1,2 @@
+session title: Building and using AI models responsibly, Q&A
+abstract: Come and join us in this interactive session with our product experts to get your questions answered on the latest responsible AI capabilities and Microsoft’s commitment in this space.

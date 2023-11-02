@@ -1,0 +1,146 @@
+Title: msbuild 2023 sessions list 
+This list contains 
+- session title 
+- when it takes place
+- session speakers
+
+START OF LIST 
+-----------------
+session 1
+title: Practical deep dive into machine learning techniques and MLOps
+Wednesday, May 24 11:45 PM - 12:30 AM Central European Summer Time
+Speakers: Alexander Hughes,Ami Patel,Shané Winner
+-----------------
+session 2
+title: Enhance your solutions with new Azure AI products and features
+Thursday, May 25 7:45 PM - 8:30 PM Central European Summer Time
+Speakers: Marco Casalaina
+-----------------
+session 3
+title: Build apps with state-of-the-art computer vision
+Wednesday, May 24 2:15 AM - 3:00 AM Central European Summer Time
+Speakers: Adina Trufinescu
+-----------------
+session 4
+title: Getting started with generative AI using Azure OpenAI Service
+Tuesday, May 23 8:30 PM - 9:15 PM Central European Summer Time
+Speakers: Pablo Castro, Dom Divakaruni
+-----------------
+5) 
+session title: Qualcomm® AI Stack for developers and extension to on-device AI
+
+Thursday, May 25 2:15 AM - 3:00 AM Central European Summer Time
+
+Speakers: Fred Balsiger,Vinesh Sukumar
+-----------------
+session 6
+title: Building and using AI models responsibly, Q&A
+Wednesday, May 24 2:15 AM - 3:00 AM Central European Summer Time
+Speakers: Besmira Nushi,Mehrnoosh Sameki,Steve Sweetman,Wenxin Wei
+-----------------
+session 7
+title: Building AI solutions with Semantic Kernel
+Wednesday, May 24 2:15 AM - 3:00 AM Central European Summer Time
+Speakers: Sam Schillace,Hajj Flemings,John Maeda
+-----------------
+session 8
+title: Scott and Mark Learn to Code
+Thursday, May 25 9:00 PM - 10:00 PM Central European Summer Time
+Speakers: Mark Russinovich, Scott Hanselman
+-----------------
+session 9
+title: Building and using AI models responsibly
+Wednesday, May 24 1:00 AM - 1:45 AM Central European Summer Time
+Speakers: Sarah Bird, Mehrnoosh Sameki,Wenxin Wei
+-----------------
+session 10 
+title: How to build next-gen AI services with NVIDIA AI on Azure Cloud
+Tuesday, May 23 8:30 PM - 9:15 PM Central European Summer Time
+Speakers: Jon Coons, Adel El Hallak,Damian Hasak
+-----------------
+session 11
+title: Learn Live: Introduction to Azure OpenAI Service
+Wednesday, May 24 9:15 PM - 10:15 PM Central European Summer Time
+Speakers: Ivana Tilca, Rod Trent
+-----------------
+session 12 
+title: Learn Live: Get started with AI on Microsoft Azure
+Wednesday, May 24 2:15 AM - 3:15 AM Central European Summer Time
+Speakers: David Glover,Priyanka Shah
+-----------------
+session 13
+title: State of the Art Data Retrieval with Machine Learning & Elasticsearch
+Tuesday, May 23 8:30 PM - 9:00 PM Central European Summer Time
+Speakers: NIck Chow,Brittany Roush,Kim Brylle
+-----------------
+session 14
+title: Build and Maintain your Company Copilot with Azure ML and GPT-4, Q&A
+Wednesday, May 24 1:00 AM - 1:45 AM Central European Summer Time
+Speakers: Greg Buehrer
+-----------------
+session 15
+title: OpenFL (Federated Learning) Building better AI models with private data
+Tuesday, May 23 11:45 PM - 12:15 AM Central European Summer Time
+Speakers: Michael McReynolds, Brian Rogers,Mansi Sharma
+-----------------
+session 16
+title: UX Designing for Copilot
+Tuesday, May 23 11:45 PM - 12:30 AM Central European Summer Time
+Speakers: Kurtis Beavers,Rachel Shepard
+-----------------
+session 17
+title: Harnessing generative AI with NVIDIA AI and Microsoft Azure
+Wednesday, May 24 8:00 PM - 8:30 PM Central European Summer Time
+session title: Speakers: Uttara Kumar,Dave Salvator,Matt Vegas
+-----------------
+session 18
+title: The era of the AI Copilot
+Tuesday, May 23 6:25 PM - 7:05 PM Central European Summer Time
+Speakers: Kevin Scott,Greg Brockman
+-----------------
+session 19
+title: Next generation AI for developers with the Microsoft Cloud
+Tuesday, May 23 7:05 PM - 8:00 PM Central European Summer Time
+Speakers: Thomas Dohmke,Scott Guthrie,Sarah Bird,Seth Juarez
+-----------------
+session 20
+title: Build and maintain your company Copilot with Azure ML and GPT-4
+Tuesday, May 23 10:30 PM - 11:15 PM Central European Summer Time
+Speakers: Greg Buehrer,Seth Juarez,Daniel Schneider
+-----------------
+session 21
+title: Operationalization of AI/ML models and use cases for ChatGPT, Q&A
+Wednesday, May 24 10:30 PM - 11:15 PM Central European Summer Time
+Speakers: Manisha Jain
+-----------------
+session 22
+title: Build, Customize, and Deploy LLMs At-Scale on Azure with NVIDIA NeMo
+Tuesday, May 23 9:30 PM - 10:00 PM Central European Summer Time
+Speakers: Hugo Affaticati,Nirmalya De
+-----------------
+session 23
+title: NVIDIA AI Enterprise Registry for AzureML deployments of AI Workflows
+Wednesday, May 24 9:15 PM - 9:45 PM Central European Summer Time
+Speakers: Manoj Bableshwar, gabrielle Davelaar, Manuel Reyes-Gomez
+-----------------
+session 24
+title: Open for AI: Secure paths to data collaboration, volume, and diversity
+Tuesday, May 23 10:30 PM - 11:15 PM Central European Summer Time
+Speakers: Arun Gupta,Graham Bury
+-----------------
+session 25
+title: Building computer vision applications, Q&A
+Thursday, May 25 1:00 AM - 1:45 AM Central European Summer Time
+Speakers: Fisayo Okikiolu, Kate Browne
+-----------------
+session 26
+title: State of GPT
+Tuesday, May 23 11:45 PM - 12:30 AM Central European Summer Time
+Speakers: Andrej Karpathy
+-----------------
+session 27
+title: Practical deep dive into machine learning techniques and MLOps, Q&A
+Thursday, May 25 2:15 AM - 3:00 AM Central European Summer Time
+Speakers: Ami Patel, Shané Winner
+-----------------
+END OF LIST 

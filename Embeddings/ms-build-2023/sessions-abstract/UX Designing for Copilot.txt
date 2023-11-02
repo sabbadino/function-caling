@@ -1,0 +1,2 @@
+session title: UX Designing for Copilot
+abstract: ChatGPT’s success hinges on its collaborative UX. That simple chat interaction—magical to the masses—launched a firestorm of interest in copilots. Join design leaders from Azure and Microsoft 365 to learn how they leveraged the magic of that UX and adapted it for enterprises. See the patterns and principles in their design system. Learn about copilot-specific guidance and best practices, so the copilots you create capture that same spark.

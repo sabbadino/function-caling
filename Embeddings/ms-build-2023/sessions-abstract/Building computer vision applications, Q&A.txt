@@ -1,0 +1,2 @@
+session title: Building computer vision applications, Q&A
+abstract: In this discussion, hear from subject matter experts with our industry-leading Azure AI Vision service. Bring your questions as you build state-of-the-art computer vision applications.

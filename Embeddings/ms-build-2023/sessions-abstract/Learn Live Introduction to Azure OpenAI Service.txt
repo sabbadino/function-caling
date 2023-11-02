@@ -1,0 +1,2 @@
+session title: Learn Live: Introduction to Azure OpenAI Service
+abstract: Artificial Intelligence (AI) empowers amazing new solutions and experiences, and Microsoft Azure provides easy-to-use services to help you get started. In this session, describe Azure OpenAI workloads and access the Azure OpenAI Service, understand generative AI models, and understand Azure OpenAI language, code, and image capabilities. Also, learn about responsible AI practices and limited access policies in Azure OpenAI.

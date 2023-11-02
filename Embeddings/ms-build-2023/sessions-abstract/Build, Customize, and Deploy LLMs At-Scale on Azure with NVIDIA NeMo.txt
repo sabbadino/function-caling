@@ -1,0 +1,2 @@
+session title: Build, Customize, and Deploy LLMs At-Scale on Azure with NVIDIA NeMo
+abstract: Enterprises need to customize LLMs or build one from scratch to take full advantage of Generative AI. This technical session covers how NVIDIA NeMo allows enterprises to build their custom language/image models or customize an existing foundation model and deploy at scale on Azure. We will cover the features that simplify and accelerate the entire workflow followed by an opportunity to speak with technical NVIDIA and Microsoft experts to get you started with Generative AI.
