@@ -22,6 +22,8 @@ public class Question
     public QuestionOptions QuestionOptions { get; } = new();
     public int? EmbeddingMatchMaxItems { get; set; }
     public required string ModelName { get; set; } = "";
+
+    public List<(FunctionDefinition Function, int Tokens)> Functions { get; init; } = new();
 }
 public record ContextMessage  : TextWIthTokenCount
 {

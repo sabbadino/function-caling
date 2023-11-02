@@ -1,6 +1,7 @@
 ﻿using Azure.AI.OpenAI;
 using ChatGptBot.Chain.Dto;
 using ChatGptBot.Ioc;
+using ChatGptBot.Services.FunctionsCalling;
 using ChatGptBot.Settings;
 using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.DataContracts;
@@ -11,21 +12,16 @@ namespace ChatGptBot.Chain.Bricks;
 public class CompletionEndpointBrick : LangChainBrickBase, ILangChainBrick, ISingletonScope
 {
     private readonly OpenAIClient _openAiClient;
-    private readonly TelemetryClient _telemetryClient;
-    private readonly ChatGptSettings _chatGptSettings;
+    private readonly IFunctionCaller _functionCaller;
 
-    public CompletionEndpointBrick(OpenAIClient openAiClient, IOptions<ChatGptSettings> openAiSettings, TelemetryClient telemetryClient)
+    public CompletionEndpointBrick(OpenAIClient openAiClient, IFunctionCaller functionCaller)
     {
         _openAiClient = openAiClient;
-        _telemetryClient = telemetryClient;
-        _chatGptSettings = openAiSettings.Value;
+        _functionCaller = functionCaller;
     }
 
     public override async Task<Answer> Ask(Question question)
     {
-        using var op = _telemetryClient.StartOperation<DependencyTelemetry>(nameof(CompletionEndpointBrick));
-        try
-        {
             if (string.IsNullOrEmpty(question.UserQuestion.Text))
             {
                 throw new Exception($"{nameof(Question)} is null");
@@ -55,20 +51,33 @@ public class CompletionEndpointBrick : LangChainBrickBase, ILangChainBrick, ISin
 
             chatCompletionsOptions.Temperature = question.QuestionOptions.Temperature;
 
+            chatCompletionsOptions.Functions = question.Functions.Select(f => f.Function).ToList();
 
-            var response = await _openAiClient.GetChatCompletionsAsync(
+        var response = await _openAiClient.GetChatCompletionsAsync(
                 deploymentOrModelName: question.ModelName,
                 chatCompletionsOptions);
-            var completion = response.Value.Choices[0].Message;
+            var choice = response.Value.Choices[0];
 
-            return new Answer { AnswerFromChatGpt = completion.Content??""};
-        }
-        catch (Exception)
 
-        {
-            op.Telemetry.Success = false;
-            throw;
-        }
+            if (choice.FinishReason == CompletionsFinishReason.FunctionCall && !string.IsNullOrEmpty(choice.Message.FunctionCall?.Name))
+            {
+                var ret = await _functionCaller.CallFunction(choice.Message.FunctionCall);
+                chatCompletionsOptions.Messages.Add(new ChatMessage(ChatRole.Function, ret.Result) { Name = choice.Message.FunctionCall.Name });
+                chatCompletionsOptions.FunctionCall = FunctionDefinition.None;
+                // i should check for token limit 
+                // for the moment i avoid to have another reply as function setting Function_call4.None 
+                response = await _openAiClient.GetChatCompletionsAsync(
+                    deploymentOrModelName: question.ModelName,
+                    chatCompletionsOptions);
+                return new Answer { AnswerFromChatGpt= response.Value.Choices.ToList()[0].Message.Content ?? "" };
+            }
+            else
+            {
+                return new Answer { AnswerFromChatGpt = choice.Message.Content ?? "" };
+            }
+
+        
+        
     }
 
     private static void AddChatHistory(ChatCompletionsOptions chatCompletionsOptions, List<ConversationHistoryMessage> conversationHistoryMessages)

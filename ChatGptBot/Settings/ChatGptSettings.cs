@@ -2,10 +2,7 @@
 {
     public class ChatGptSettings
     {
-        public bool IsAzureChatGpt { get; init; } = true;
-        public string OpenAiApiKey { get; init; } = "";
-        
-
+     
         public string AzureChatGptEndPoint { get; init; } = "";
 
         public string AzureOpenAiApiKey { get; init; } = "";

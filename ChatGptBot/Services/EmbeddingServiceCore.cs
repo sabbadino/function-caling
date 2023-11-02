@@ -16,24 +16,19 @@ public class EmbeddingServiceCore : IEmbeddingServiceCore, ISingletonScope
 {
     private readonly OpenAIClient _openAiClient;
     private readonly IMemoryCache _memoryCache;
-    private readonly TelemetryClient _telemetryClient;
     private readonly ChatGptSettings _chatGptSettings;
 
     public EmbeddingServiceCore(OpenAIClient openAiClient, 
-        IOptions<ChatGptSettings> openAiSettings, IMemoryCache memoryCache, TelemetryClient telemetryClient)
+        IOptions<ChatGptSettings> openAiSettings, IMemoryCache memoryCache)
     {
         _openAiClient = openAiClient;
         _memoryCache = memoryCache;
-        _telemetryClient = telemetryClient;
         _chatGptSettings = openAiSettings.Value;
     }
 
     public async Task<List<float>> GetTextEmbeddings(string text)
     {
         ArgumentException.ThrowIfNullOrEmpty(text);
-        using var op = _telemetryClient.StartOperation<DependencyTelemetry>(nameof(EmbeddingServiceCore));
-        try
-        {
             var vector = _memoryCache.Get<List<float>>(text);
             if (vector != null)
             {
@@ -46,12 +41,5 @@ public class EmbeddingServiceCore : IEmbeddingServiceCore, ISingletonScope
             vector = response.Value.Data[0].Embedding.ToList();
             _memoryCache.Set(text, vector, DateTimeOffset.MaxValue);
             return vector;
-        }
-        catch (Exception)
-
-        {
-            op.Telemetry.Success = false;
-            throw;
-        }
     }
 }
