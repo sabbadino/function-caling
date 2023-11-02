@@ -11,8 +11,8 @@
   <ItemGroup>
   
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-    <PackageReference Include="NSwag.Core" Version="13.19.0" />
-    <PackageReference Include="Azure.AI.OpenAI" Version="1.0.0-beta.8" />
+  
+    <PackageReference Include="Azure.AI.OpenAI" Version="1.0.0-beta.6" />
   
     <PackageReference Include="Azure.AI.Translation.Text" Version="1.0.0-beta.1" />
   
@@ -21,6 +21,10 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0-preview1.23109.1" />
     <PackageReference Include="SharpToken" Version="1.0.28" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\FunctionsCalling\" />
   </ItemGroup>
 
 </Project>

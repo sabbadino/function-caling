@@ -11,30 +11,20 @@ using SharpToken;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddApplicationInsightsTelemetry(opt =>
-{
-    opt.EnableAdaptiveSampling = false;
-
-});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-var isAzureChatGpt= builder.Configuration.GetValue<bool>($"{nameof(ChatGptSettings)}:isAzureChatGpt");
-if(!isAzureChatGpt) {
-    var openAiApiKey = builder.Configuration[$"{nameof(ChatGptSettings)}:openAiApiKey"];
-    var client = new OpenAIClient(openAiApiKey);
-    builder.Services.AddSingleton(client);
-}
-else {
-    var endpoint = builder.Configuration[$"{nameof(ChatGptSettings)}:azureChatGptEndPoint"];
-    ArgumentException.ThrowIfNullOrEmpty(endpoint);
-    var azureOpenAiApiKey = builder.Configuration[$"{nameof(ChatGptSettings)}:azureOpenAiApiKey"];
-    ArgumentException.ThrowIfNullOrEmpty(azureOpenAiApiKey);
-    OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(azureOpenAiApiKey));
-    builder.Services.AddSingleton(client);
-}
+
+builder.Services.AddOptions<List<FunctionsCall>>().Bind(builder.Configuration.GetSection($"{nameof(FunctionsCall)}s"));
+var endpoint = builder.Configuration[$"{nameof(ChatGptSettings)}:azureChatGptEndPoint"];
+ArgumentException.ThrowIfNullOrEmpty(endpoint);
+var azureOpenAiApiKey = builder.Configuration[$"{nameof(ChatGptSettings)}:azureOpenAiApiKey"];
+ArgumentException.ThrowIfNullOrEmpty(azureOpenAiApiKey);
+OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(azureOpenAiApiKey));
+builder.Services.AddSingleton(client);
+
 builder.Services.RegisterByConvention<Program>();
 
 builder.Services.AddAutoMapper(typeof(Program));
@@ -67,6 +57,9 @@ AzureKeyCredential credential = new(textTranslationKey);
 TextTranslationClient textTranslationClient = new(credential, textTranslationRegion);
 builder.Services.AddSingleton(textTranslationClient);
 builder.Services.AddHostedService<DefaultEmbeddingSetLoader>();
+
+builder.Services.AddHttpClient();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

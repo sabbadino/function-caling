@@ -9,8 +9,7 @@ function App() {
   const defaultConversation: Message[] = [
     {
       author: "Bot",
-      //2text: "Hello I am Emma, myMSC virtual assistant. How can I help you with?",
-      text: "Hello I am Emma, what brings you here today?",
+      text: "Hello I am Emma, myMSC virtual assistant. How can I help you with?",   
       time: getTime(),
     },
   ];

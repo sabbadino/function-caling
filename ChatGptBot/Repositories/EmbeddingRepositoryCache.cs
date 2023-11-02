@@ -15,32 +15,21 @@ public class EmbeddingRepositoryCache : IEmbeddingRepositoryCache,ISingletonScop
 {
     private readonly IEmbeddingRepository _embeddingRepository;
     private readonly IMemoryCache _memoryCache;
-    private readonly TelemetryClient _telemetryClient;
 
-    public EmbeddingRepositoryCache(IEmbeddingRepository embeddingRepository,IMemoryCache memoryCache, TelemetryClient telemetryClient)
+    public EmbeddingRepositoryCache(IEmbeddingRepository embeddingRepository,IMemoryCache memoryCache)
     {
         _embeddingRepository = embeddingRepository;
         _memoryCache = memoryCache;
-        _telemetryClient = telemetryClient;
     }
     public async Task<List<Embedding>> LoadSet(string code)
     {
-        using var op = _telemetryClient.StartOperation<DependencyTelemetry>(nameof(EmbeddingRepositoryCache));
         var response = _memoryCache.Get<List<Embedding>>(code);
         if (response != null)
         {
             return response;
         }
-        try
-        {
-            response = await _embeddingRepository.LoadSet(code);
+        response = await _embeddingRepository.LoadSet(code);
             _memoryCache.Set(code, response, DateTimeOffset.MaxValue);
-        }
-        catch (Exception)
-        {
-            op.Telemetry.Success = false;
-            throw;
-        }
         return response;
     }
 

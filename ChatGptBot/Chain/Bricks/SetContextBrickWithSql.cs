@@ -19,25 +19,20 @@ public class SetContextBrickWithSql : LangChainBrickBase, ILangChainBrick, ISing
     private readonly IEmbeddingRepositoryCache _embeddingRepositoryCache;
     private readonly IEmbeddingServiceCore _embeddingServiceCore;
     private readonly GptEncoding _gptEncoding;
-    private readonly TelemetryClient _telemetryClient;
     private readonly ChatGptSettings _chatGptSettings;
 
        public SetContextBrickWithSql(IEmbeddingRepositoryCache embeddingRepositoryCache
     , IOptions<ChatGptSettings> openAi, IEmbeddingServiceCore embeddingServiceCore
-    , GptEncoding gptEncoding, TelemetryClient telemetryClient)
+    , GptEncoding gptEncoding)
     {
         _chatGptSettings= openAi.Value; 
         _embeddingRepositoryCache = embeddingRepositoryCache;
         _embeddingServiceCore = embeddingServiceCore;
         _gptEncoding = gptEncoding;
-        _telemetryClient = telemetryClient;
     }
 
        public override async Task<Answer> Ask(Question question)
        {
-           using var op = _telemetryClient.StartOperation<DependencyTelemetry>(nameof(SetContextBrick));
-           try
-           {
                if (Next == null)
                {
                    throw new Exception($"{GetType().Name} cannot be the last item of the chain");
@@ -105,12 +100,6 @@ public class SetContextBrickWithSql : LangChainBrickBase, ILangChainBrick, ISing
                }
 
                return await Next.Ask(question);
-           }
-           catch (Exception)
-           {
-               op.Telemetry.Success = false;
-               throw;
-           }
        }
 
        private List<ContextMessage> ExtractBetterMatches(

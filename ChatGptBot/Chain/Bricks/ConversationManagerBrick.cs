@@ -16,16 +16,14 @@ public class ConversationManagerBrick : LangChainBrickBase, ILangChainBrick, ISi
 {
     private readonly IConversationRepository _conversationRepository;
     private readonly GptEncoding _gptEncoding;
-    private readonly TelemetryClient _telemetryClient;
     private readonly ChatGptSettings _chatGptSettings;
     private readonly IEmbeddingRepositoryCache _embeddingRepositoryCache;
 
-    public ConversationManagerBrick(IConversationRepository conversationRepository, GptEncoding gptEncoding, TelemetryClient telemetryClient,
+    public ConversationManagerBrick(IConversationRepository conversationRepository, GptEncoding gptEncoding,
         IEmbeddingRepositoryCache embeddingRepositoryCache, IOptions<ChatGptSettings> chatGptSettings)
     {
         _conversationRepository = conversationRepository;
         _gptEncoding = gptEncoding;
-        _telemetryClient = telemetryClient;
         _chatGptSettings = chatGptSettings.Value;
         _embeddingRepositoryCache = embeddingRepositoryCache;
     }
@@ -37,9 +35,8 @@ public class ConversationManagerBrick : LangChainBrickBase, ILangChainBrick, ISi
         {
             throw new Exception($"{GetType().Name} cannot be the last item of the chain");
         }
-        using var op = _telemetryClient.StartOperation<DependencyTelemetry>(nameof(ConversationManagerBrick));
-        try
-        {
+      
+      
             var questionConversationItem = new ConversationItem
             {
                 OriginalTextLanguageCode = question.UserQuestion.DetectedUserQuestionLanguageCode,
@@ -93,13 +90,8 @@ public class ConversationManagerBrick : LangChainBrickBase, ILangChainBrick, ISi
             }
 
             return ret;
-        }
-        catch (Exception)
-
-        {
-            op.Telemetry.Success = false;
-            throw;
-        }
+      
+       
     }
 
     List<Dto.ContextMessage> ToContextMessages(List<Services.Embedding> set,List<ContextMessage> contextMessageDbs,int questionSequenceNumberInConversation)
