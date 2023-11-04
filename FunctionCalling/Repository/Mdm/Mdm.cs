@@ -29,7 +29,7 @@ namespace FunctionCalling.ExternalServices.Mdm
 
         public IReadOnlyCollection<PortDetails> GetPortByUnCodeOrName(string searchValue)
         {
-            var allPorts = GetAllPorts();
+            var allPorts = GetAll();
             if (string.IsNullOrEmpty(searchValue))
             {
                 return allPorts;
@@ -43,7 +43,7 @@ namespace FunctionCalling.ExternalServices.Mdm
         }
 
 
-        public IReadOnlyCollection<PortDetails> GetAllPorts()
+        public IReadOnlyCollection<PortDetails> GetAll()
         {
             return _ports;
         }

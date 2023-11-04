@@ -6,15 +6,6 @@ using System.Text.Json;
 
 namespace FunctionCalling.Controllers.Dtos;
 
-public class SubmitQuoteRequest : AvailableQuote
-{
-    [SwaggerSchema("email of the user", Nullable = false)]
-    public string Email { get; init; } = "";
-
-   
-}
-
-
 [SwaggerSchema(Required = new[]
 {
     nameof(Email), nameof(Origin),nameof(Destination), nameof(ContainerType)
@@ -22,7 +13,7 @@ public class SubmitQuoteRequest : AvailableQuote
 })]
 public class QuotationQueryRequest
 {
-    [SwaggerSchema("The email of the user. Assistant must ask the user a value for email if not provided. Assistant must not not make up one", Nullable = false)]
+    [SwaggerSchema("The email of the user. Important: Assistant must ask the user a value for email if not provided in the conversation. Assistant must not not make up one", Nullable = false)]
     public string Email { get; init; } = "";
 
     [SwaggerSchema("origin (from)", Nullable = false)]
@@ -41,8 +32,18 @@ public class QuotationQueryRequest
     [SwaggerSchema("cargo weight", Nullable = false)]
     public float? Weight { get; init; }
 
+    [SwaggerSchema("cargo weight unit", Nullable = false)]
+    public WeightUnit? WeightUnit { get; init; }
+
 
 }
+
+public enum WeightUnit
+{
+    Kilograms,
+    Pounds
+}
+
 
 public enum ContainerType
 {

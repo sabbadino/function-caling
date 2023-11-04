@@ -4,12 +4,10 @@ using FunctionCalling.Validators.CustomValidators;
 
 namespace FunctionCalling.Validators;
 
-
-
-public class QuotationQueryRequestValidator : AbstractValidator<QuotationQueryRequest>
+public class SubmitQuoteRequestValidator : AbstractValidator<SubmitQuoteRequest>
 {
     private const int MinLengthForPortName = 3;
-    public QuotationQueryRequestValidator()
+    public SubmitQuoteRequestValidator()
     {
         RuleFor(x => x.Email).NotEmpty().WithMessage(d => new ValidationErrorInfo { ErrorCode = "invalid email", AssistantAction = "ask the user to provide a valid email address" }.ToJson());
         RuleFor(x => x.Email).EmailAddress().WithMessage(d => new ValidationErrorInfo { ErrorCode = "invalid email", AssistantAction = "ask the user to provide a valid email address" }.ToJson());
@@ -22,13 +20,17 @@ public class QuotationQueryRequestValidator : AbstractValidator<QuotationQueryRe
                 AssistantAction = "ask the user to provide a value for {PropertyName}"
             }.ToJson());
 
-        RuleFor(x => x.Destination).Length(MinLengthForPortName,100).
-            WithMessage(d => new ValidationErrorInfo{ ErrorCode = "{PropertyName} value is invalid",
+        RuleFor(x => x.Destination).Length(MinLengthForPortName, 100).
+            WithMessage(d => new ValidationErrorInfo
+            {
+                ErrorCode = "{PropertyName} value is invalid",
                 AssistantAction = "reply to the user with these exact words: '{PropertyName} must have a value of at least " + MinLengthForPortName + " characters"
             }.ToJson());
-        
+
         RuleFor(x => x.Origin).Length(MinLengthForPortName, 100).
-            WithMessage(d => new ValidationErrorInfo { ErrorCode = "{PropertyName} value is invalid",
+            WithMessage(d => new ValidationErrorInfo
+            {
+                ErrorCode = "{PropertyName} value is invalid",
                 AssistantAction = "reply to the user with these exact words: '{PropertyName} must have a value of at least " + MinLengthForPortName + " characters"
             }.ToJson());
 

@@ -13,7 +13,7 @@ namespace FunctionCalling.ExternalServices.Mdm
     {
 
         IReadOnlyCollection<PortDetails> GetPortByUnCodeOrName(string searchValue);
-        IReadOnlyCollection<PortDetails> GetAllPorts();
+        IReadOnlyCollection<PortDetails> GetAll();
     }
 
 
