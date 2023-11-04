@@ -28,7 +28,7 @@
         public int MinimumAvailableTokensForTokenForAnswer => 50;
 
         public float MaxAllowedTokenRatioForUserQuestion => Convert.ToInt32(MaxTokens * 0.05f);
-        public int MaxConversationHistoryPairsToLoad { get; init; } = 6;
+        public int MaxConversationHistoryPairsToLoad { get; init; } = 15;
 
         public string TikToken { get; init; } = "cl100k_base";
 

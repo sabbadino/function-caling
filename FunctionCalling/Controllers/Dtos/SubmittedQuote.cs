@@ -28,35 +28,19 @@ public class SubmittedQuote
     public ContainerType ContainerType { get; init; }
     public required string Origin { get; init; } = "";
     public required  string Destination { get; init; } = "";
-}
 
+    public required float Weight { get; init; }
+    public required WeightUnit WeightUnit { get; init; }
 
-public class AvailableQuote
-{
-    public float Amount { get; init; } 
-    public string Currency { get; init; } = "";
-
-    public int TransitDays { get; init; }
-
-    public DateTime ShippingWindowsFrom { get; init; }
-
-    public DateTime ShippingWindowsTo { get; init; }
-
-    public ContainerType ContainerType { get; init; }
-
-    public string Origin { get; init; } = "";
-
-    public string Destination{ get; init; } = "";
-
-
+    public required string CommodityGroup { get; init; }
 }
 
 public enum QuoteStatus
 {
     Submitted, Expired
 }
-public enum QuoteStatusQuery
-{
-    All, Submitted, Expired
-}
+//public enum QuoteStatusQuery
+//{
+//    Submitted, Expired
+//}
 
