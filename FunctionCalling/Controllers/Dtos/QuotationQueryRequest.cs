@@ -13,7 +13,7 @@ namespace FunctionCalling.Controllers.Dtos;
 })]
 public class QuotationQueryRequest
 {
-    [SwaggerSchema("The email of the user. Important: Assistant must ask the user a value for email if not provided in the conversation. Assistant must not not make up one", Nullable = false)]
+    [SwaggerSchema("The email of the user. IMPORTANT : Assistant must ask the user a value for email if not provided in the conversation. Assistant must not not make up one", Nullable = false)]
     public string Email { get; init; } = "";
 
     [SwaggerSchema("origin (from)", Nullable = false)]

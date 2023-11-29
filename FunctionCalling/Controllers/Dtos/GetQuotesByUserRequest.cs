@@ -15,7 +15,7 @@ public class GetQuotesByUserRequest
     [SwaggerSchema("The Quote Status", Nullable = true)]
     public QuoteStatus ? QuoteStatus { get; init; }
 
-    [SwaggerSchema("The email of the user. Important: Assistant must ask the user a value for email if not provided in the conversation. Assistant must not not make up one", Nullable = false)]
+    [SwaggerSchema("The email of the user. IMPORTANT : Assistant must ask the user a value for email if not provided in the conversation. Assistant must not not make up one", Nullable = false)]
     public string Email { get; init; } = "";
 
 

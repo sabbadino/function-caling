@@ -86,11 +86,9 @@ namespace ChatGptBot.Services
             builder.Add(chainBricks.Single(i => i.GetType() == typeof(QuestionLengthGuardBrick)));
             builder.Add(chainBricks.Single(i => i.GetType() == typeof(QuestionTranslatorBrick)));
             builder.Add(chainBricks.Single(i => i.GetType() == typeof(ConversationManagerBrick)));
-            builder.Add(chainBricks.Single(i => i.GetType() == typeof(AnswerTranslatorBrick)));
             //builder.Add(chainBricks.Single(i => i.GetType() == typeof(ChangeTopicDetectorBrick)));
             builder.Add(chainBricks.Single(i => i.GetType() == typeof(AnswerTranslatorBrick)));
             builder.Add(chainBricks.Single(i => i.GetType() == typeof(SetSystemMessageBrick)));
-            builder.Add(chainBricks.Single(i => i.GetType() == typeof(SetContextBrick)));
             builder.Add(chainBricks.Single(i => i.GetType() == typeof(FunctionsProviderBrick))); 
             builder.Add(chainBricks.Single(i => i.GetType() == typeof(MaxTokenGuardBrick)));
             builder.Add(chainBricks.Single(i => i.GetType() == typeof(SetApiCallOptionsBrick)));
