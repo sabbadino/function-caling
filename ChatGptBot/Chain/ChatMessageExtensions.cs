@@ -12,8 +12,6 @@ public static class ChatMessageExtensions
         var totalInputTokens = 0;
         totalInputTokens = question.SystemMessages.Aggregate(totalInputTokens, (counter, item) => counter + item.Tokens);
         totalInputTokens = question.ConversationHistoryMessages.Aggregate(totalInputTokens, (counter, item) => counter + item.Tokens);
-        totalInputTokens = question.ContextMessages.Aggregate(totalInputTokens, (counter, item) => counter + item.Tokens);
-        totalInputTokens = question.ContextIntroMessages.Aggregate(totalInputTokens, (counter, item) => counter + item.Tokens);
         totalInputTokens += question.UserQuestion.Tokens;
         return totalInputTokens;
 

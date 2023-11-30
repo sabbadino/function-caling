@@ -11,6 +11,8 @@ using System.Text.Json;
 using FluentValidation.Results;
 using FunctionCalling.ExternalServices.Mdm.Dto;
 using FunctionCalling.Repository.Quotes;
+using System.Text.RegularExpressions;
+using Microsoft.Extensions.FileSystemGlobbing.Internal;
 
 namespace FunctionCalling.Controllers
 {
@@ -206,12 +208,17 @@ namespace FunctionCalling.Controllers
 
             return ret;
         }
-
+        
         private ValidationResult ValidatePort(string propertyName,string propertyValue)
         {
             var ret = new ValidationResult();
             if (!string.IsNullOrEmpty(propertyValue))
             {
+                var unCode = Regex.Match(propertyValue, @"(?<=\[).*?(?=\])").Value;
+                if (!string.IsNullOrEmpty(unCode))
+                {
+                    propertyValue = unCode;
+                }
                 var candidatePorts = TryMatchPort(propertyValue);
 
                 if (candidatePorts.Count == 0)

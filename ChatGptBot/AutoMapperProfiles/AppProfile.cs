@@ -10,11 +10,11 @@ namespace ChatGptBot.AutoMapperProfiles
     {
         public AppProfile()
         {
-            CreateMap<EmbeddingForDb, Embedding>();
+            
 
             CreateMap<Answer, AnswerToUserDto>().ForMember(dest =>
                     dest.Answer,
-                opt => opt.MapFrom(src => !string.IsNullOrEmpty(src.TranslatedAnswerFromAi)? src.TranslatedAnswerFromAi: src.AnswerFromChatGpt));
+                opt => opt.MapFrom(src => src.AnswerFromChatGpt));
         }
     }
 }

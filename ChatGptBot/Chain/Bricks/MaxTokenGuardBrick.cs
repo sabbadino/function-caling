@@ -34,14 +34,7 @@ public class MaxTokenGuardBrick : LangChainBrickBase, ILangChainBrick, ISingleto
                 break;
             }
 
-            if (question.ConversationHistoryMessages.Count > 2)
-            {
-                question.RemoveOldestConversationEntryPair(question.ContextMessages);
-            }
-            else
-            {
-                question.RemoveLeastSignificantContextItem();   
-            }
+            question.RemoveOldestConversationEntryPair();   
 
             totalTokensInQuestion = question.TotalTokensInQuestion();
         }

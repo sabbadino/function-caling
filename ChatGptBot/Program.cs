@@ -56,7 +56,7 @@ ArgumentException.ThrowIfNullOrEmpty(textTranslationKey);
 AzureKeyCredential credential = new(textTranslationKey);
 TextTranslationClient textTranslationClient = new(credential, textTranslationRegion);
 builder.Services.AddSingleton(textTranslationClient);
-builder.Services.AddHostedService<DefaultEmbeddingSetLoader>();
+
 
 builder.Services.AddHttpClient();
 

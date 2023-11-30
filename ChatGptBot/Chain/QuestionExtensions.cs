@@ -5,35 +5,15 @@ namespace ChatGptBot.Chain;
 
 public static class QuestionExtensions
 {
-    public static bool AnswerRequiresTranslation(this Question question)
-    {
-        return question.UserQuestion.DetectedUserQuestionLanguageCode != QuestionTranslatorBrick.TargetLanguageCode;
-    }
+    
 
-    public static void RemoveLeastSignificantContextItem(this Question question)
-    {
-        var toBeRemoved = question.ContextMessages
-            .OrderBy(c => c.QuestionSequenceNumberInConversation)
-            .ThenBy(c => c.Proximity).FirstOrDefault();
-        if (toBeRemoved != null)
-        {
-            question.ContextMessages.Remove(toBeRemoved);
-        }
-    }
+    
 
-    public static void RemoveOldestConversationEntryPair(this Question question, List<ContextMessage> contentMessages)
+    public static void RemoveOldestConversationEntryPair(this Question question)
     {
-        if (question.ConversationHistoryMessages.Count > 0)
+        if (question.ConversationHistoryMessages.Count > 1)
         {
-            //remove also content message elated to history message
-            var id = question.ConversationHistoryMessages[0].Id;
-            contentMessages.RemoveAll(c => c.ConversationItemId == id); 
             question.ConversationHistoryMessages.RemoveAt(0);
-        }
-        if (question.ConversationHistoryMessages.Count > 0)
-        {
-            var id = question.ConversationHistoryMessages[0].Id;
-            contentMessages.RemoveAll(c => c.ConversationItemId == id);
             question.ConversationHistoryMessages.RemoveAt(0);
         }
     }

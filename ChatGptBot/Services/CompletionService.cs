@@ -84,10 +84,8 @@ namespace ChatGptBot.Services
 
             // 5) above plus max token guard (user question and MaxTokenGuardBrick)
             builder.Add(chainBricks.Single(i => i.GetType() == typeof(QuestionLengthGuardBrick)));
-            builder.Add(chainBricks.Single(i => i.GetType() == typeof(QuestionTranslatorBrick)));
             builder.Add(chainBricks.Single(i => i.GetType() == typeof(ConversationManagerBrick)));
             //builder.Add(chainBricks.Single(i => i.GetType() == typeof(ChangeTopicDetectorBrick)));
-            builder.Add(chainBricks.Single(i => i.GetType() == typeof(AnswerTranslatorBrick)));
             builder.Add(chainBricks.Single(i => i.GetType() == typeof(SetSystemMessageBrick)));
             builder.Add(chainBricks.Single(i => i.GetType() == typeof(FunctionsProviderBrick))); 
             builder.Add(chainBricks.Single(i => i.GetType() == typeof(MaxTokenGuardBrick)));
@@ -110,16 +108,12 @@ namespace ChatGptBot.Services
                 ConversationId = userQuestion.ConversationId,
                 UserQuestion = new UserQuestionMessage
                 {
-                    OriginalLanguageQuestionText= userQuestion.QuestionText,
+                    
                     Text = userQuestion.QuestionText, 
                     Tokens = _gptEncoding.Encode(userQuestion.QuestionText).Count
                 }
             };
             var ret = await _chain.Ask(question);
-            if (string.IsNullOrEmpty(ret.TranslatedAnswerFromAi))
-            {
-                ret.TranslatedAnswerFromAi = ret.AnswerFromChatGpt;
-            }
             return _mapper.Map<AnswerToUserDto>(ret);
         }
     }

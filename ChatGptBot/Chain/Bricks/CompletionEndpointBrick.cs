@@ -37,12 +37,6 @@ public class CompletionEndpointBrick : LangChainBrickBase, ILangChainBrick, ISin
                 }
             });
 
-            question.ContextIntroMessages.ForEach(contentIntroMessage => chatCompletionsOptions.Messages.Add(new
-                ChatMessage(ChatRole.User, contentIntroMessage.Text)));
-
-            question.ContextMessages.OrderBy(c => c.Proximity).ToList()
-                .ForEach(contentMessage => chatCompletionsOptions.Messages.Add(new
-                ChatMessage(ChatRole.User, contentMessage.Text)));
 
 
             AddChatHistory(chatCompletionsOptions, question.ConversationHistoryMessages);

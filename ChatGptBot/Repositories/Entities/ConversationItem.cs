@@ -7,9 +7,9 @@ public record ConversationItem
 {
     public required Guid ConversationId { get; init; }
     public Guid Id { get; init; } = Guid.NewGuid();
-    public required string OriginalText { get; init; } = "";
+    
 
-    public required string OriginalTextLanguageCode { get; init; } = "en";
+    
     public required string EnglishText { get; init; } = "";
 
     public required int Tokens { get; init; } 

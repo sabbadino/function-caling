@@ -13,7 +13,7 @@ namespace ChatGptBot.Repositories
     public interface IConversationRepository
     {
         Task StoreAssistantConversationItem(ConversationItem conversationItem);
-        Task StoreUserConversationItem(ConversationItem conversationItem, List<Chain.Dto.ContextMessage> contextMessages, bool userHasChangeTopic );
+        Task StoreUserConversationItem(ConversationItem conversationItem);
         Task <List<ConversationItem>> LoadConversation(Guid conversationId);
     }
 
@@ -28,17 +28,17 @@ namespace ChatGptBot.Repositories
             _cnString = storage.Value.ConnectionString;
         }
 
-        public Task StoreUserConversationItem(ConversationItem conversationItem, List<Chain.Dto.ContextMessage> contextMessages,bool userHasChangeTopic)
+        public Task StoreUserConversationItem(ConversationItem conversationItem)
         {
-            return StoreConversationItem(conversationItem, contextMessages, userHasChangeTopic);
+            return StoreConversationItem(conversationItem);
         }
 
         public Task StoreAssistantConversationItem(ConversationItem conversationItem)
         {
-            return StoreConversationItem(conversationItem, new List<Chain.Dto.ContextMessage>());
+            return StoreConversationItem(conversationItem);
         }
 
-        private async Task StoreConversationItem(ConversationItem conversationItem, List<Chain.Dto.ContextMessage> contextMessages, bool? userHasChangeTopic=null )
+        private async Task StoreConversationItem(ConversationItem conversationItem)
         {
             await using var cn = new SqlConnection(_cnString);
             await cn.OpenAsync();
@@ -79,17 +79,17 @@ namespace ChatGptBot.Repositories
             cmd.Parameters.Add(new SqlParameter
             {
                 ParameterName = "originaltext",
-                Value = conversationItem.OriginalText,
+                Value = conversationItem.EnglishText,
             });
             cmd.Parameters.Add(new SqlParameter
             {
                 ParameterName = "originaltextlanguagecode",
-                Value = conversationItem.OriginalTextLanguageCode,
+                Value = "en"
             });
             cmd.Parameters.Add(new SqlParameter
             {
                 ParameterName = "userHasChangedTopic",
-                Value = userHasChangeTopic??SqlBoolean.Null
+                Value = false
             });
             cmd.Connection = cn;
             await cmd.ExecuteNonQueryAsync();
@@ -120,13 +120,7 @@ namespace ChatGptBot.Repositories
 
             };
             cmd.Parameters.Add(embeddingIdParam);
-            foreach (var contextMessage in contextMessages) 
-            {
-                idParam.Value = Guid.NewGuid(); 
-                cosineParam.Value = contextMessage.Proximity;
-                embeddingIdParam.Value = contextMessage.EmbeddingId;
-                await cmd.ExecuteNonQueryAsync();
-            };
+            
         }
 
         private async Task CreateConversationHeaderIfRequired(SqlConnection cn, ConversationItem conversationItem)
@@ -181,8 +175,6 @@ namespace ChatGptBot.Repositories
                     At = reader.GetDateTimeOffset(2),
                     ChatRole = reader.GetString(3),
                     Tokens = reader.GetInt32(4),
-                    OriginalText = reader.GetString(5),
-                    OriginalTextLanguageCode = reader.GetString(6),
                     ProvideContext = (reader.GetString(3) == ChatRole.Assistant
                         ? null
                         : provideContext)

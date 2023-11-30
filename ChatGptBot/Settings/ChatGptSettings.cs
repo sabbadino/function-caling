@@ -9,18 +9,18 @@
 
         public string ModelName { get; init; } = "";
 
-        public string EmbeddingsModel { get; init; } ="";
+        
 
         public float SimilarityThreshold { get; init; } = 0.75f;
         
         public string SystemMessage { get; init; } = "";
         public float Temperature { get; init; } = 0.2f;
 
-        public float CondensationTemperature { get; init; } = 0.0f;
-        public string DefaultEmbeddingSetCode { get; init; } = "mymsc";
-        public int DefaultEmbeddingMatchMaxItems { get; init; } = 5;
+        
+        
+        
 
-        public int DefaultTotalEmbeddingMatchMaxItems { get; init; } = 10;
+        
 
         public int MaxTokens { get; init; } = 4096;
 
@@ -28,7 +28,7 @@
         public int MinimumAvailableTokensForTokenForAnswer => 50;
 
         public float MaxAllowedTokenRatioForUserQuestion => Convert.ToInt32(MaxTokens * 0.05f);
-        public int MaxConversationHistoryPairsToLoad { get; init; } = 15;
+        public int MaxConversationHistoryPairsToLoad { get; init; } = 25;
 
         public string TikToken { get; init; } = "cl100k_base";
 
