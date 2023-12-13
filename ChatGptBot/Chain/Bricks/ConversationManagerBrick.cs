@@ -4,8 +4,6 @@ using ChatGptBot.Ioc;
 using ChatGptBot.Repositories;
 using ChatGptBot.Repositories.Entities;
 using ChatGptBot.Settings;
-using Microsoft.ApplicationInsights;
-using Microsoft.ApplicationInsights.DataContracts;
 using Microsoft.Extensions.Options;
 using SharpToken;
 using ContextMessage = ChatGptBot.Repositories.Entities.ContextMessage;
