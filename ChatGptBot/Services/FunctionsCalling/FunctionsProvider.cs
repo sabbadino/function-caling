@@ -11,7 +11,7 @@ namespace ChatGptBot.Services.FunctionsCalling
 {
     public interface IFunctionsProvider
     {
-        Task<IEnumerable<FunctionDefinition>> AvailableFunctions();
+        Task<IEnumerable<ChatCompletionsFunctionToolDefinition>> AvailableFunctions();
 
        
     }
@@ -26,9 +26,9 @@ namespace ChatGptBot.Services.FunctionsCalling
             _memoryCache = memoryCache;
             _functionsCalls = functionsCalls.Value;
         }
-        public async Task<IEnumerable<FunctionDefinition>> AvailableFunctions()
+        public async Task<IEnumerable<ChatCompletionsFunctionToolDefinition>> AvailableFunctions()
         {
-            var ret = new List<FunctionDefinition>();
+            var ret = new List<ChatCompletionsFunctionToolDefinition>();
             foreach (var functionsCall in _functionsCalls)
             {
                 var jsonUrl = functionsCall.OpenAiDocUrl;
@@ -44,12 +44,13 @@ namespace ChatGptBot.Services.FunctionsCalling
                 {
                     if (operationDescription.Operation.ActualParameters.Count == 1)
                     {
-                        var chatCompletionFunctions = new FunctionDefinition
+                        var chatCompletionFunctions = new ChatCompletionsFunctionToolDefinition
                         {
                             Parameters = new BinaryData(operationDescription.Operation.ActualParameters.ToList()[0]
                                 .ActualTypeSchema.ToJson()),
                             Description = operationDescription.Operation.Description,
-                            Name = operationDescription.Operation.OperationId
+                            Name = operationDescription.Operation.OperationId,
+                            
                         };
 
                         ret.Add(chatCompletionFunctions);

@@ -16,14 +16,22 @@ namespace ChatGptBot.Controllers
             _completionService = completionService;
         }
 
-        [HttpPost("ask",Name = "Ask")]
+        [HttpPost("ask", Name = "Ask")]
         public async Task<AnswerToUserDto> Ask(UserQuestionDto userQuestion)
         {
-            
-            return await _completionService.Ask(userQuestion);  
-
+            try
+            {
+                return await _completionService.Ask(userQuestion);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;  
+            }
+         
         }
+
+    }
 
        
     }
-}

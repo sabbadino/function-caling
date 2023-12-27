@@ -20,43 +20,52 @@ public class CompletionEndpointBrick : LangChainBrickBase, ILangChainBrick, ISin
 
     public override async Task<Answer> Ask(Question question)
     {
-            if (string.IsNullOrEmpty(question.UserQuestion.Text))
+        if (string.IsNullOrEmpty(question.UserQuestion.Text))
+        {
+            throw new Exception($"{nameof(Question)} is null");
+        }
+
+        var chatCompletionsOptions = new ChatCompletionsOptions();
+        question.SystemMessages.ForEach(systemMessage =>
+        {
+            if (!string.IsNullOrEmpty(systemMessage.Text))
             {
-                throw new Exception($"{nameof(Question)} is null");
+                chatCompletionsOptions.Messages.Add(new
+                    ChatRequestSystemMessage(systemMessage.Text));
             }
-
-            var chatCompletionsOptions = new ChatCompletionsOptions();
-            question.SystemMessages.ForEach(systemMessage =>
-            {
-                if (!string.IsNullOrEmpty(systemMessage.Text))
-                {
-                    chatCompletionsOptions.Messages.Add(new
-                        ChatRequestSystemMessage(systemMessage.Text));
-                }
-            });
+        });
 
 
 
-            AddChatHistory(chatCompletionsOptions, question.ConversationHistoryMessages);
+        AddChatHistory(chatCompletionsOptions, question.ConversationHistoryMessages);
 
-            chatCompletionsOptions.Messages.Add(new ChatRequestUserMessage($"user prompt: {question.UserQuestion.Text}"));
+        chatCompletionsOptions.Messages.Add(new ChatRequestUserMessage($"user prompt: {question.UserQuestion.Text}"));
 
-            chatCompletionsOptions.Temperature = question.QuestionOptions.Temperature;
+        chatCompletionsOptions.Temperature = question.QuestionOptions.Temperature;
+        foreach (var t in question.Tools.Select(f => f.Tool))
+        {
+            chatCompletionsOptions.Tools.Add(t);
+        }
+    
 
-        chatCompletionsOptions.Functions = question.Functions.Select(f => f.Function).ToList();
-        
         chatCompletionsOptions.DeploymentName = question.ModelName;
         var response = await _openAiClient.GetChatCompletionsAsync(chatCompletionsOptions);
             var choice = response.Value.Choices[0];
 
 
-            if (choice.FinishReason == CompletionsFinishReason.FunctionCall && !string.IsNullOrEmpty(choice.Message.FunctionCall?.Name))
+            if (choice.FinishReason == CompletionsFinishReason.ToolCalls && choice.Message.ToolCalls.Count>0)
             {
-                var ret = await _functionCaller.CallFunction(choice.Message.FunctionCall);
-                chatCompletionsOptions.Messages.Add(new ChatRequestFunctionMessage(choice.Message.FunctionCall.Name , ret.Result) );
-                chatCompletionsOptions.FunctionCall = FunctionDefinition.None;
+                // should i add ChatRequestAssistantMessage and ChatRequestToolMessage to saved history ? 
+                var toolCallHistoryMessage = new ChatRequestAssistantMessage(choice.Message);
+                chatCompletionsOptions.Messages.Add(toolCallHistoryMessage);
+                var functionCalls = choice.Message.ToolCalls.OfType<ChatCompletionsFunctionToolCall>();
+                foreach (var functionCall in functionCalls)
+                {
+                    var ret = await _functionCaller.CallFunction(functionCall);
+                    chatCompletionsOptions.Messages.Add(new ChatRequestToolMessage(ret.Result, functionCall.Id));
+                }
+                chatCompletionsOptions.ToolChoice = ChatCompletionsToolChoice.None;
                 // i should check for token limit 
-                // for the moment i avoid to have another reply as function setting Function_call4.None 
                 response = await _openAiClient.GetChatCompletionsAsync(
                     chatCompletionsOptions);
                 return new Answer { AnswerFromChatGpt= response.Value.Choices.ToList()[0].Message.Content ?? "" };

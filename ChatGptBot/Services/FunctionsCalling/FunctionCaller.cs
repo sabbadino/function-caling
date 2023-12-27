@@ -10,7 +10,7 @@ namespace ChatGptBot.Services.FunctionsCalling;
 public interface IFunctionCaller
 {
        
-    Task<FunctionCallResult> CallFunction(FunctionCall functionCall);
+    Task<FunctionCallResult> CallFunction(ChatCompletionsFunctionToolCall functionCall);
 }
 
 public class FunctionCaller : IFunctionCaller, ISingletonScope
@@ -26,7 +26,7 @@ public class FunctionCaller : IFunctionCaller, ISingletonScope
         _functionsCalls = functionsCalls.Value;
     }
 
-    public async Task<FunctionCallResult> CallFunction(FunctionCall functionCall)
+    public async Task<FunctionCallResult> CallFunction(ChatCompletionsFunctionToolCall functionCall)
     {
        
         var functionsCall = _functionsCalls.SingleOrDefault(f => f.Name == functionCall.Name);

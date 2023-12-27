@@ -27,7 +27,7 @@ public class FunctionsProviderBrick : LangChainBrickBase, ILangChainBrick, ISing
         }
         foreach(var function in await _functionsProvider.AvailableFunctions())
         {
-            question.Functions.Add((function, _gptEncoding.Encode(System.Text.Json.JsonSerializer.Serialize(function)).Count));
+            question.Tools.Add((function, _gptEncoding.Encode(System.Text.Json.JsonSerializer.Serialize(function)).Count));
         }
         var ret = await Next.Ask(question);
         return ret;

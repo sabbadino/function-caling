@@ -22,7 +22,7 @@ public class Question
     public int? EmbeddingMatchMaxItems { get; set; }
     public required string ModelName { get; set; } = "";
 
-    public List<(FunctionDefinition Function, int Tokens)> Functions { get; init; } = new();
+    public List<(ChatCompletionsToolDefinition Tool, int Tokens)> Tools { get; init; } = new();
 }
 public record ContextMessage  : TextWIthTokenCount
 {
