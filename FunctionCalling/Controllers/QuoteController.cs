@@ -91,7 +91,7 @@ namespace FunctionCalling.Controllers
             }
 
             var quotes = new List<AvailableQuote>();
-            Enumerable.Range(0, _random.Next(3, 5)).ToList().ForEach(i =>
+            Enumerable.Range(0, _random.Next(2, 4)).ToList().ForEach(i =>
             {
                 quotes.Add(new AvailableQuote
                 {
