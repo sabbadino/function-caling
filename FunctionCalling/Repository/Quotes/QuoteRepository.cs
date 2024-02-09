@@ -22,7 +22,7 @@ namespace FunctionCalling.Repository.Quotes
            
             var ports = mdm.GetAll().ToList();
             var commodities = commodityRepository.GetAll().ToList();
-            Enumerable.Range(0, DemoHelpers.RandomNumber(1, 3)).ToList().ForEach(i =>
+            Enumerable.Range(0, DemoHelpers.RandomNumber(2, 3)).ToList().ForEach(i =>
             {
                 _quotes.Add(new SubmittedQuote
                 {

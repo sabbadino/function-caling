@@ -1,6 +1,6 @@
 namespace FunctionCalling.Controllers.Dtos;
 
-public class AvailableQuote
+public record AvailableQuote
 {
     public float Amount { get; init; } 
     public string Currency { get; init; } = "";

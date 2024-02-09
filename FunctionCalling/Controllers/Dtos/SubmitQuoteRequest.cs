@@ -2,7 +2,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace FunctionCalling.Controllers.Dtos;
 
-public class SubmitQuoteRequest : AvailableQuote
+public record SubmitQuoteRequest : AvailableQuote
 {
     [SwaggerSchema("email of the user", Nullable = false)]
     public string Email { get; init; } = "";

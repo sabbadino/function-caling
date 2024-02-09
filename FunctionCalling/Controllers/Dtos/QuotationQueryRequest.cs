@@ -11,7 +11,7 @@ namespace FunctionCalling.Controllers.Dtos;
     nameof(Email), nameof(Origin),nameof(Destination), nameof(ContainerType)
     ,  nameof(Origin) ,  nameof(Weight),  nameof(CommodityGroup)
 })]
-public class QuotationQueryRequest
+public record QuotationQueryRequest
 {
     [SwaggerSchema("The email of the user. IMPORTANT : Assistant must ask the user a value for email if not provided in the conversation. Assistant must not not make up one", Nullable = false)]
     public string Email { get; init; } = "";
