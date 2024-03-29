@@ -9,14 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Settings\systemMessage-weather.txt" />
+    <None Remove="Configs\systemMessage-a1.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Settings\systemMessage-weather.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Settings\systemMessage-mymsc.txt">
+    <Content Include="Settings\systemMessage-a1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -32,6 +29,10 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0-preview1.23109.1" />
     <PackageReference Include="SharpToken" Version="1.2.14" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configs\" />
   </ItemGroup>
 
 </Project>

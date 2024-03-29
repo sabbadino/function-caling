@@ -13,7 +13,7 @@
 
         public float SimilarityThreshold { get; init; } = 0.75f;
         
-        public string SystemMessage { get; init; } = "";
+        public string SystemMessageName { get; init; } = "";
         public float Temperature { get; init; } = 0.2f;
 
         

@@ -4,15 +4,15 @@ using FunctionCalling.Validators.CustomValidators;
 
 namespace FunctionCalling.Validators;
 
-public class GetWeatherRequestValidator : AbstractValidator<GetWeatherRequest>
+public class GetCurrentWeatherRequestValidator : AbstractValidator<GetCurrentWeatherRequest>
 {
     private const int MinLengthLocationName = 3;
 
-    public GetWeatherRequestValidator()
+    public GetCurrentWeatherRequestValidator()
     {
         RuleFor(x => x.Location).NotEmpty().WithMessage(d => new ValidationErrorInfo
         {
-            ErrorCode = "invalid email", 
+            ErrorCode = "invalid location", 
             AssistantAction = "ask the user to provide a valid location"
         }.ToJson());
         RuleFor(x => x.Location).Length(MinLengthLocationName, 100).

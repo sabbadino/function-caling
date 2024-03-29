@@ -25,40 +25,55 @@ namespace FunctionCalling.Controllers
 
         private readonly ILogger<WeatherController> _logger;
         private readonly IHttpClientFactory _httpClientFactory;
-        private readonly IValidator<GetWeatherRequest> _getWeatherRequestValidator;
-     
+        private readonly IValidator<GetCurrentWeatherRequest> _currentWeatherRequestValidator;
+        private readonly IValidator<GetPastRequest> _getPastRequestValidator;
+
 
         public WeatherController(ILogger<WeatherController> logger,IHttpClientFactory httpClientFactory,
-            IValidator<GetWeatherRequest> getWeatherRequestValidator)
+            IValidator<GetCurrentWeatherRequest> currentWeatherRequestValidator, IValidator<GetPastRequest> getPastRequestValidator)
         {
             _logger = logger;
             _httpClientFactory = httpClientFactory;
-            _getWeatherRequestValidator = getWeatherRequestValidator;
+            _currentWeatherRequestValidator = currentWeatherRequestValidator;
+            _getPastRequestValidator = getPastRequestValidator;
         }
-        private static readonly Random Random = new ();
-        private static readonly float MinTemperature= -15f;
-        private static readonly float MaxTemperature = 40f;
+     
 
-        [HttpPost(template: "get-weather", Name = nameof(GetWeather))]
+        [HttpPost(template: "get-current-weather", Name = nameof(GetCurrentWeather))]
         [SwaggerOperation(
-            Description = "returns the weather given a town or region name",
-            OperationId = nameof(GetWeather))]
-        public async Task<Results<BadRequest<IEnumerable<ValidationErrorInfo>>, Ok<GetWeatherResponse>>> GetWeather(
-            [FromBody] GetWeatherRequest getWeatherRequest)
+            Description = "returns the current weather given a town or region name",
+            OperationId = nameof(GetCurrentWeather))]
+        public async Task<Results<BadRequest<IEnumerable<ValidationErrorInfo>>, Ok<GetWeatherResponse>>> GetCurrentWeather(
+            [FromBody] GetCurrentWeatherRequest getCurrentWeatherRequest)
         {
-            var result = _getWeatherRequestValidator.Validate(getWeatherRequest);
+            var result = _currentWeatherRequestValidator.Validate(getCurrentWeatherRequest);
             if (result.Errors.Any())
             {
                 return TypedResults.BadRequest(result.Errors.Select(e =>
                     JsonSerializer.Deserialize<ValidationErrorInfo>(e.ErrorMessage) ?? new ValidationErrorInfo()));
             }
 
-            return TypedResults.Ok(await WeatherStack(getWeatherRequest.Location));
+            return TypedResults.Ok(await WeatherStackCurrent(getCurrentWeatherRequest.Location));
         }
-        
 
+        [HttpPost(template: "get-past-weather", Name = nameof(GetPastForecast))]
+        [SwaggerOperation(
+            Description = "returns the weather that there wa sin the past given a town or region name and a date in the past",
+            OperationId = nameof(GetPastForecast))]
+        public async Task<Results<BadRequest<IEnumerable<ValidationErrorInfo>>, Ok<GetWeatherResponse>>> GetPastForecast(
+            [FromBody] GetPastRequest getPastRequest)
+        {
+            var result = _getPastRequestValidator.Validate(getPastRequest);
+            if (result.Errors.Any())
+            {
+                return TypedResults.BadRequest(result.Errors.Select(e =>
+                    JsonSerializer.Deserialize<ValidationErrorInfo>(e.ErrorMessage) ?? new ValidationErrorInfo()));
+            }
 
-        private async Task<GetWeatherResponse> WeatherStack(string location )
+            return TypedResults.Ok(await WeatherStackHistorical(getPastRequest.Location, getPastRequest.Date));
+        }
+
+        private async Task<GetWeatherResponse> WeatherStackCurrent(string location )
         {
             var client = _httpClientFactory.CreateClient();
             var ret = await client.GetAsync($"http://api.weatherstack.com/current?access_key=7ea70979788db31811aef63a3a676686&query={location}&units=m");
@@ -69,23 +84,44 @@ namespace FunctionCalling.Controllers
             return JsonSerializer.Deserialize<GetWeatherResponse>(await ret.Content.ReadAsStreamAsync()) ??new();
         }
 
-    
+        private async Task<GetWeatherResponse> WeatherStackHistorical(string location, DateTime date)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var ret = await client.GetAsync($"http://api.weatherstack.com/forecast?access_key=7ea70979788db31811aef63a3a676686&query={location}&historical={date:yyyy-MM-dd}&units=m");
+            if (!ret.IsSuccessStatusCode)
+            {
+                throw new Exception($"{ret.StatusCode} + {await ret.Content.ReadAsStringAsync()}");
+            }
+            return JsonSerializer.Deserialize<GetWeatherResponse>(await ret.Content.ReadAsStreamAsync()) ?? new();
+        }
 
-   
 
-       
 
-     
-     
+
+
+
+
+
+
 
 
 
 
     }
-
-    public class GetWeatherRequest
+    [SwaggerSchema(Required = new[] { "Location" })]
+    public class GetCurrentWeatherRequest
     {
+        [SwaggerSchema("The location (town or region) name. IMPORTANT : Assistant must ask the user a value for location. If not provided in the conversation, Assistant must not not make up one", Nullable = false)]
         public string Location { get; init; } = "";
+    }
+
+    [SwaggerSchema(Required = new[] { "Location", "Date" })]
+    public class GetPastRequest
+    {
+        [SwaggerSchema("The location (town or region) name. IMPORTANT : Assistant must ask the user a value for location. If not provided in the conversation, Assistant must not not make up one", Nullable = false)]
+        public string Location { get; init; } = "";
+        [SwaggerSchema("The date user want to know how the weather was like. IMPORTANT : Assistant must ask the user a value for date. If not provided in the conversation, Assistant must not not make up one", Nullable = false)]
+        public DateTime Date { get; init; } 
     }
 
 
