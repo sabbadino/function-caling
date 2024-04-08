@@ -1,6 +1,6 @@
 A: Hello I am Emma, myMSC virtual assistant. How can I help you with?
 -----------
-U: i want to make a quote
+U: i need a quote
 -----------
 A: Sure, I can help you with that. Could you please provide me with the following details?
 

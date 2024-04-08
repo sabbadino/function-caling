@@ -1,11 +1,16 @@
 using Azure;
 using Azure.AI.OpenAI;
 using Azure.AI.Translation.Text;
+using Azure.Core;
+using Azure.Core.Diagnostics;
+using Azure.Core.Pipeline;
 using ChatGptBot;
 using ChatGptBot.Ioc;
 using ChatGptBot.Settings;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Azure;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using SharpToken;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,7 +27,15 @@ var endpoint = builder.Configuration[$"{nameof(ChatGptSettings)}:azureChatGptEnd
 ArgumentException.ThrowIfNullOrEmpty(endpoint);
 var azureOpenAiApiKey = builder.Configuration[$"{nameof(ChatGptSettings)}:azureOpenAiApiKey"];
 ArgumentException.ThrowIfNullOrEmpty(azureOpenAiApiKey);
-OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(azureOpenAiApiKey));
+var opt = new OpenAIClientOptions
+{
+    Diagnostics =
+    {
+        IsLoggingContentEnabled = true
+    }
+};
+
+OpenAIClient client = new(new Uri(endpoint), new AzureKeyCredential(azureOpenAiApiKey),opt);
 builder.Services.AddSingleton(client);
 
 builder.Services.RegisterByConvention<Program>();
@@ -59,6 +72,8 @@ builder.Services.AddSingleton(textTranslationClient);
 
 
 builder.Services.AddHttpClient();
+
+builder.Services.TryAddSingleton<AzureEventSourceLogForwarder>();
 
 var app = builder.Build();
 

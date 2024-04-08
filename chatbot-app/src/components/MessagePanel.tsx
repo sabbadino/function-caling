@@ -91,7 +91,7 @@ const MessagePanel = (props: MessagePanelProps) => {
       </Fab>
       <TextField
         id="outlined-basic-email"
-        label="Ask me anything about myMSC..."
+        label="Ask me about your quotes ..."
         className="message-box"
         variant="outlined"
         autoComplete="off"

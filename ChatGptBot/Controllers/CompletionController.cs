@@ -1,6 +1,7 @@
 using ChatGptBot.Dtos.Completion.Controllers;
 using ChatGptBot.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Azure;
 
 namespace ChatGptBot.Controllers
 {
@@ -11,8 +12,9 @@ namespace ChatGptBot.Controllers
         private readonly ICompletionService _completionService;
 
 
-        public CompletionController(ICompletionService completionService)
+        public CompletionController(ICompletionService completionService, AzureEventSourceLogForwarder logForwarder)
         {
+            logForwarder.Start();
             _completionService = completionService;
         }
 

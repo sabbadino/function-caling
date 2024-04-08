@@ -7,7 +7,7 @@ namespace FunctionCalling
     {
 
         private static readonly List<string> CreatedBy = new List<string>
-            {"enrico.sabbadin@msc.com", "marco@msc.com", "giorgio@msc.com", "franco@msc.com"};
+            {"enrico.sabbadin@msc.com"/*, "marco@msc.com", "giorgio@msc.com", "franco@msc.com"*/};
 
         public static string RandomEmail()
         {

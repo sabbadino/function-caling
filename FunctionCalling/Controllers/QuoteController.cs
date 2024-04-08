@@ -71,6 +71,8 @@ namespace FunctionCalling.Controllers
             OperationId = nameof(QuotationQueryRequest))]
         public async Task<Results<BadRequest<IEnumerable<ValidationErrorInfo>>, Ok<List<AvailableQuote>>>> AvailableQuotes([FromBody] QuotationQueryRequest quotationQueryRequest)
         {
+            quotationQueryRequest= quotationQueryRequest with { Origin = SanitizePortName(quotationQueryRequest.Origin), Destination = SanitizePortName(quotationQueryRequest.Destination) };
+            
             var result = await _quotationQueryRequestValidator.ValidateAsync(quotationQueryRequest);
             if (result.Errors.SingleOrDefault(e => e.PropertyName == nameof(QuotationQueryRequest.Destination)) == null)
             {
@@ -91,7 +93,7 @@ namespace FunctionCalling.Controllers
             }
 
             var quotes = new List<AvailableQuote>();
-            Enumerable.Range(0, _random.Next(3, 5)).ToList().ForEach(i =>
+            Enumerable.Range(0, _random.Next(2, 4)).ToList().ForEach(i =>
             {
                 quotes.Add(new AvailableQuote
                 {
@@ -119,6 +121,7 @@ namespace FunctionCalling.Controllers
             OperationId = nameof(SubmitQuoteRequest))]
         public Results<BadRequest<IEnumerable<ValidationErrorInfo>>, Ok<SubmittedQuote>> SubmitQuote([FromBody] SubmitQuoteRequest submitQuoteRequest)
         {
+            submitQuoteRequest = submitQuoteRequest  with { Origin = SanitizePortName(submitQuoteRequest.Origin), Destination = SanitizePortName(submitQuoteRequest.Destination) };
             var result = _submitQuoteRequestValidator.Validate(submitQuoteRequest);
             if (result.Errors.Any())
             {
@@ -208,18 +211,26 @@ namespace FunctionCalling.Controllers
 
             return ret;
         }
-        
-        private ValidationResult ValidatePort(string propertyName,string propertyValue)
+
+        private string SanitizePortName(string port)
         {
-            var ret = new ValidationResult();
-            if (!string.IsNullOrEmpty(propertyValue))
+            if (!string.IsNullOrEmpty(port))
             {
-                var unCode = Regex.Match(propertyValue, @"(?<=\[).*?(?=\])").Value;
+                var unCode = Regex.Match(port, @"(?<=\[).*?(?=\])").Value;
                 if (!string.IsNullOrEmpty(unCode))
                 {
-                    propertyValue = unCode;
+                    port = unCode;
                 }
-                var candidatePorts = TryMatchPort(propertyValue);
+            }
+            return port??"";
+        }
+
+        private ValidationResult ValidatePort(string propertyName,string portName)
+        {
+            var ret = new ValidationResult();
+            if (!string.IsNullOrEmpty(portName))
+            {
+                var candidatePorts = TryMatchPort(portName);
 
                 if (candidatePorts.Count == 0)
                 {
@@ -229,7 +240,7 @@ namespace FunctionCalling.Controllers
                         {
                             ErrorCode = $"invalid value for {propertyName}",
                             AssistantAction =
-                                $"reply to the user with these exact words: '{propertyValue} is an invalid value for {propertyName}'"
+                                $"reply to the user with these exact words: '{portName} is an invalid value for {propertyName}'"
                         }.ToJson())));
                 }
                 else if (candidatePorts.Count > 1)

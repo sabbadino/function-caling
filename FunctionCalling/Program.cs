@@ -39,7 +39,7 @@ builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 builder.Services.RegisterByConvention<Program>();
 
 builder.Services.AddMemoryCache();
-
+builder.Services.AddHttpClient();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
