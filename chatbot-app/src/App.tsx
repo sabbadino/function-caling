@@ -10,7 +10,7 @@ function App() {
     {
       author: "Bot",
       //text: "Hello I am Emma, your myMSC virtual assistant. I can help you list and filter your existing quotes, and ask for new ones.",   
-      text: "Hello I am Emma, your weather virtual assistant. askme about the current weather in differnt cities and i will try to provide you answer.",   
+      text: "Hello I am Emma, your weather virtual assistant. askme about the current weather in differnt cities and i will try to provide you an answer.",   
       time: getTime(),
     },
   ];
