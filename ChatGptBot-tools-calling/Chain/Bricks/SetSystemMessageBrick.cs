@@ -20,11 +20,11 @@ public class SetSystemMessageBrick : LangChainBrickBase, ILangChainBrick, ISingl
 
     public override async Task<Answer> Ask(Question question)
     {
-        var systemMessage = _chatGptSettings.SystemMessage;
+        var systemMessage = File.ReadAllText($"Settings{Path.DirectorySeparatorChar}systemMessage-{_chatGptSettings.SystemMessageName}.txt");
         if (!string.IsNullOrEmpty(systemMessage))
         {
             question.SystemMessages.Add(new TextWIthTokenCount
-                {Text = systemMessage, Tokens = _gptEncoding.Encode(systemMessage).Count});
+                { Text = systemMessage, Tokens = _gptEncoding.Encode(systemMessage).Count });
         }
 
         if (Next == null)

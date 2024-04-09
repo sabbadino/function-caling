@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatGptBot", "ChatGptBot\Ch
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TargetApi", "TargetApi\TargetApi.csproj", "{C874DC77-44D2-4BC5-9DED-0411D7621AD7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatGptBot-tools-calling", "ChatGptBot-tools-calling\ChatGptBot-tools-calling.csproj", "{1A0C4D25-3DDE-4B66-8902-28FB6ED53C56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C874DC77-44D2-4BC5-9DED-0411D7621AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C874DC77-44D2-4BC5-9DED-0411D7621AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C874DC77-44D2-4BC5-9DED-0411D7621AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A0C4D25-3DDE-4B66-8902-28FB6ED53C56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A0C4D25-3DDE-4B66-8902-28FB6ED53C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A0C4D25-3DDE-4B66-8902-28FB6ED53C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A0C4D25-3DDE-4B66-8902-28FB6ED53C56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
