@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TargetApi", "TargetApi\TargetApi.csproj", "{C874DC77-44D2-4BC5-9DED-0411D7621AD7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatGptBot", "ChatGptBot-tools-calling\ChatGptBot.csproj", "{CE6279E8-1946-4215-8F8D-75EF2D972E92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChatGptBot-tools-calling", "ChatGptBot-tools-calling\ChatGptBot-tools-calling.csproj", "{9A9DEC17-D0FD-48C0-B125-1A307840963C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{C874DC77-44D2-4BC5-9DED-0411D7621AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C874DC77-44D2-4BC5-9DED-0411D7621AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C874DC77-44D2-4BC5-9DED-0411D7621AD7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE6279E8-1946-4215-8F8D-75EF2D972E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE6279E8-1946-4215-8F8D-75EF2D972E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE6279E8-1946-4215-8F8D-75EF2D972E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE6279E8-1946-4215-8F8D-75EF2D972E92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A9DEC17-D0FD-48C0-B125-1A307840963C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9DEC17-D0FD-48C0-B125-1A307840963C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9DEC17-D0FD-48C0-B125-1A307840963C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9DEC17-D0FD-48C0-B125-1A307840963C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
